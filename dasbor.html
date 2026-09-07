@@ -1,0 +1,390 @@
+<!doctype html>
+<html lang="id">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex, nofollow">
+<title>Dasbor Mentor AVIMSA</title>
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Ctext y='.9em' font-size='90'%3E%F0%9F%93%8A%3C/text%3E%3C/svg%3E">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,600;9..144,700&family=IBM+Plex+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap">
+<style>
+:root{
+  --paper:#FBF8F5;--surface:#FFFFFF;--surface-2:#F4EEE9;--surface-3:#EAE1DA;
+  --ink:#1E1719;--ink-2:#4E4348;--muted:#7F7176;
+  --rule:#E7DED8;--rule-2:#D2C5BD;
+  --arterial:#B0142C;--arterial-soft:#FBEAEC;
+  --venous:#1F5E86;--venous-soft:#E7F0F6;
+  --leaf:#2C6B4F;--leaf-soft:#E5F1EA;
+  --sun:#9A6B12;--sun-soft:#FBF0DC;
+  --r-lg:14px;--r-md:9px;
+  --shadow:0 1px 2px rgba(30,23,25,.05),0 12px 30px -22px rgba(30,23,25,.4);
+}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){
+  --paper:#15100F;--surface:#1E1817;--surface-2:#271F1E;--surface-3:#332A28;
+  --ink:#F5EDE9;--ink-2:#D3C5C0;--muted:#9E8E89;--rule:#312826;--rule-2:#4A3D3A;
+  --arterial:#F0687C;--arterial-soft:#361C21;--venous:#7CB4DC;--venous-soft:#132632;
+  --leaf:#6FC79B;--leaf-soft:#132A21;--sun:#E0AC50;--sun-soft:#2C2317;
+  --shadow:0 1px 2px rgba(0,0,0,.45),0 12px 30px -22px rgba(0,0,0,.95);
+}}
+:root[data-theme="dark"]{
+  --paper:#15100F;--surface:#1E1817;--surface-2:#271F1E;--surface-3:#332A28;
+  --ink:#F5EDE9;--ink-2:#D3C5C0;--muted:#9E8E89;--rule:#312826;--rule-2:#4A3D3A;
+  --arterial:#F0687C;--arterial-soft:#361C21;--venous:#7CB4DC;--venous-soft:#132632;
+  --leaf:#6FC79B;--leaf-soft:#132A21;--sun:#E0AC50;--sun-soft:#2C2317;
+  --shadow:0 1px 2px rgba(0,0,0,.45),0 12px 30px -22px rgba(0,0,0,.95);
+}
+*{box-sizing:border-box}
+html{color-scheme:light dark}
+body{margin:0;background:var(--paper);color:var(--ink);font-family:"IBM Plex Sans",system-ui,sans-serif;
+  font-size:15.5px;line-height:1.6;-webkit-font-smoothing:antialiased}
+h1,h2,h3{font-family:Fraunces,Georgia,serif;letter-spacing:-.02em;margin:0;text-wrap:balance}
+button{font-family:inherit;font-size:inherit;cursor:pointer}
+[hidden]{display:none!important}
+:focus-visible{outline:2px solid var(--arterial);outline-offset:2px}
+.wrap{max-width:1120px;margin:0 auto;padding:36px 20px 90px}
+header.top{display:flex;align-items:flex-end;gap:16px;flex-wrap:wrap;border-bottom:2px solid var(--ink);
+  padding-bottom:16px;margin-bottom:26px}
+header.top .l{margin-right:auto}
+.eyebrow{font-family:"IBM Plex Mono",monospace;font-size:11px;letter-spacing:.16em;text-transform:uppercase;
+  color:var(--arterial);margin:0 0 9px}
+header.top h1{font-size:clamp(28px,4.6vw,40px);font-weight:700;line-height:1.05}
+.btn{background:var(--ink);color:var(--paper);border:none;padding:10px 18px;border-radius:99px;font-weight:600;font-size:14px}
+.btn.ghost{background:var(--surface);border:1px solid var(--rule-2);color:var(--ink)}
+.btn:hover{opacity:.88}
+.stamp{font-family:"IBM Plex Mono",monospace;font-size:11.5px;color:var(--muted)}
+h2.sec{font-size:22px;font-weight:700;margin:46px 0 3px}
+p.sub{color:var(--muted);font-size:14px;margin:0 0 18px;max-width:64ch}
+.kpi{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:12px;margin:0 0 8px}
+.kpi div{background:var(--surface);border:1px solid var(--rule);border-radius:var(--r-md);padding:15px 17px}
+.kpi .v{font-family:Fraunces,serif;font-size:26px;font-weight:700;line-height:1;font-variant-numeric:tabular-nums}
+.kpi .l{font-size:12.5px;color:var(--muted);margin-top:5px;line-height:1.35}
+.people{display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:14px;margin:18px 0}
+.person{background:var(--surface);border:1px solid var(--rule);border-radius:var(--r-lg);padding:20px;box-shadow:var(--shadow)}
+.person .ph{display:flex;align-items:baseline;gap:10px;margin-bottom:3px;flex-wrap:wrap}
+.person h3{font-size:19px;font-weight:700}
+.person .pill{font-family:"IBM Plex Mono",monospace;font-size:9.5px;letter-spacing:.12em;text-transform:uppercase;
+  padding:3px 9px;border-radius:99px;margin-left:auto}
+.pill.aktif{background:var(--leaf-soft);color:var(--leaf)}
+.pill.jarang{background:var(--sun-soft);color:var(--sun)}
+.pill.diam{background:var(--arterial-soft);color:var(--arterial)}
+.person .last{font-size:12.5px;color:var(--muted);margin:0 0 14px}
+.spark{margin:4px 0 14px}
+.spark svg{width:100%;height:56px;display:block;overflow:visible}
+.spark .cap{font-family:"IBM Plex Mono",monospace;font-size:10.5px;color:var(--muted);margin-top:4px}
+.pstats{display:grid;grid-template-columns:repeat(3,1fr);gap:10px;padding-top:13px;border-top:1px solid var(--rule)}
+.pstats div .v{font-family:"IBM Plex Mono",monospace;font-size:17px;font-variant-numeric:tabular-nums}
+.pstats div .l{font-size:11.5px;color:var(--muted);line-height:1.3}
+.weak{margin-top:13px;padding-top:12px;border-top:1px solid var(--rule);font-size:13.5px;color:var(--ink-2)}
+.weak b{color:var(--arterial);font-weight:600}
+.tblwrap{overflow-x:auto;border:1px solid var(--rule);border-radius:var(--r-md);background:var(--surface);margin:16px 0}
+table{border-collapse:collapse;width:100%;font-size:13.8px;min-width:700px}
+th,td{text-align:left;padding:10px 14px;border-bottom:1px solid var(--rule)}
+thead th{font-family:"IBM Plex Mono",monospace;font-size:10px;letter-spacing:.12em;text-transform:uppercase;
+  color:var(--muted);background:var(--surface-2);font-weight:500}
+tbody tr:last-child td{border-bottom:none}
+td.n{font-variant-numeric:tabular-nums;white-space:nowrap}
+.miss{display:flex;gap:12px;align-items:flex-start;padding:11px 0;border-bottom:1px solid var(--rule)}
+.miss:last-child{border-bottom:none}
+.miss .cnt{font-family:"IBM Plex Mono",monospace;font-size:12px;color:var(--arterial);background:var(--arterial-soft);
+  padding:3px 9px;border-radius:99px;white-space:nowrap;flex:none}
+.miss .q{font-size:14px;line-height:1.45}
+.miss .q small{display:block;color:var(--muted);font-size:11.5px;font-family:"IBM Plex Mono",monospace;margin-top:2px}
+.box{background:var(--surface);border:1px solid var(--rule);border-radius:var(--r-md);padding:6px 20px;margin:16px 0}
+.note{border-left:3px solid var(--venous);background:var(--venous-soft);padding:14px 18px;margin:18px 0;
+  font-size:13.8px;line-height:1.55;border-radius:0 6px 6px 0}
+.note b{display:block;font-family:"IBM Plex Mono",monospace;font-size:10px;letter-spacing:.14em;
+  text-transform:uppercase;color:var(--venous);margin-bottom:4px}
+.warn{border-left:3px solid var(--sun);background:var(--sun-soft);padding:14px 18px;margin:18px 0;
+  font-size:13.8px;line-height:1.55;border-radius:0 6px 6px 0}
+.warn b{display:block;font-family:"IBM Plex Mono",monospace;font-size:10px;letter-spacing:.14em;
+  text-transform:uppercase;color:var(--sun);margin-bottom:4px}
+.empty{padding:44px 20px;text-align:center;color:var(--muted);font-size:14.5px}
+.setup{background:var(--surface);border:1px solid var(--rule);border-radius:var(--r-lg);padding:24px;max-width:620px}
+.setup code{font-family:"IBM Plex Mono",monospace;font-size:12.5px;background:var(--surface-2);padding:2px 6px;border-radius:4px}
+.setup ol{padding-left:19px;margin:12px 0 0}
+.setup li{margin-bottom:8px}
+footer{border-top:1px solid var(--rule);margin-top:56px;padding-top:18px;font-size:12.5px;color:var(--muted)}
+@media (prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}}
+</style>
+</head>
+<body>
+<div class="wrap">
+
+<header class="top">
+  <div class="l">
+    <p class="eyebrow">Khusus mentor · AVIMSA 2026</p>
+    <h1>Dasbor perkembangan tim</h1>
+  </div>
+  <button class="btn ghost" id="btn-refresh">Muat ulang</button>
+</header>
+
+<div id="isi"><div class="empty">Memuat data…</div></div>
+
+<footer>
+  Halaman ini hanya membaca data, tidak pernah mengubah atau menghapusnya. Tautannya sebaiknya tidak dibagikan ke peserta.
+</footer>
+</div>
+
+<script>
+/* ===================================================================
+   PENGATURAN — isi dua baris berikut dengan nilai yang sama persis
+   seperti yang kamu isikan di index.html.
+   =================================================================== */
+const SUPABASE_URL = "https://olfhklgpmoeftbgkdgll.supabase.co";
+const SUPABASE_KEY = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6Im9sZmhrbGdwbW9lZnRiZ2tkZ2xsIiwicm9sZSI6ImFub24iLCJpYXQiOjE3ODg4MDE2ODQsImV4cCI6MjEwNDM3NzY4NH0.3qYmYd4TLDfkowHTKzHcdDQz4Q3Cxq5o807sAA-nmNE";
+/* =================================================================== */
+
+const INDEX_SOAL = {"simulasi":{"1":{"s":"Organel yang menjadi tempat berlangsungnya sintesis ATP terbanyak pada sel otot jantung …","b":"Biologi"},"2":{"s":"Membran sel bersifat semipermeabel terutama karena","b":"Biologi"},"3":{"s":"Tahapan pembelahan mitosis ketika kromatid saudara ditarik ke kutub berlawanan adalah","b":"Biologi"},"4":{"s":"Jumlah kromosom sel anak hasil meiosis II pada manusia adalah","b":"Biologi"},"5":{"s":"Replikasi DNA disebut semikonservatif karena","b":"Biologi"},"6":{"s":"Enzim yang menyambung fragmen Okazaki adalah","b":"Biologi"},"7":{"s":"Hasil bersih ATP dari satu molekul glukosa pada glikolisis adalah","b":"Biologi"},"8":{"s":"Rantai transpor elektron pada respirasi sel berlangsung di","b":"Biologi"},"9":{"s":"Akseptor elektron terakhir pada respirasi aerob adalah","b":"Biologi"},"10":{"s":"Enzim yang memecah protein menjadi pepton di lambung adalah","b":"Biologi"},"11":{"s":"Penyerapan sebagian besar sari makanan terjadi di","b":"Biologi"},"12":{"s":"Empedu berperan dalam pencernaan lemak dengan cara","b":"Biologi"},"13":{"s":"Unit fungsional ginjal yang menjadi tempat filtrasi darah adalah","b":"Biologi"},"14":{"s":"Hormon yang meningkatkan reabsorpsi air di duktus kolektivus adalah","b":"Biologi"},"15":{"s":"Pertukaran gas di paru-paru berlangsung di","b":"Biologi"},"16":{"s":"Sebagian besar CO₂ diangkut dalam darah dalam bentuk","b":"Biologi"},"17":{"s":"Urutan yang benar pada peredaran darah kecil adalah","b":"Biologi"},"18":{"s":"Katup yang terletak antara atrium kanan dan ventrikel kanan adalah","b":"Biologi"},"19":{"s":"Sel darah yang berperan utama dalam pembekuan darah adalah","b":"Biologi"},"20":{"s":"Protein plasma yang diubah menjadi benang-benang saat pembekuan darah adalah","b":"Biologi"},"21":{"s":"Pusat otomatisasi denyut jantung (pacemaker alami) adalah","b":"Biologi"},"22":{"s":"Organ limfoid tempat pematangan limfosit T adalah","b":"Biologi"},"23":{"s":"Imunitas yang diperoleh setelah seseorang sembuh dari infeksi campak termasuk","b":"Biologi"},"24":{"s":"Bagian otak yang mengatur keseimbangan dan koordinasi gerak adalah","b":"Biologi"},"25":{"s":"Neurotransmiter yang bekerja pada sambungan saraf-otot rangka adalah","b":"Biologi"},"26":{"s":"Hormon yang dihasilkan sel beta pankreas dan menurunkan kadar glukosa darah adalah","b":"Biologi"},"27":{"s":"Hormon yang memicu ovulasi adalah","b":"Biologi"},"28":{"s":"Fertilisasi pada manusia umumnya terjadi di","b":"Biologi"},"29":{"s":"Lapisan embrional yang membentuk jantung dan pembuluh darah adalah","b":"Biologi"},"30":{"s":"Jaringan yang menyusun dinding pembuluh darah dan berkontraksi tanpa kesadaran adalah","b":"Biologi"},"31":{"s":"Persilangan Aa × Aa menghasilkan keturunan dengan rasio fenotipe","b":"Biologi"},"32":{"s":"Seorang perempuan pembawa sifat hemofilia menikah dengan laki-laki normal. Kemungkinan a…","b":"Biologi"},"33":{"s":"Kelainan akibat trisomi kromosom 21 adalah","b":"Biologi"},"34":{"s":"Golongan darah anak yang mungkin lahir dari ayah bergolongan AB dan ibu bergolongan O ad…","b":"Biologi"},"35":{"s":"Jaringan epitel yang melapisi bagian dalam pembuluh darah disebut","b":"Biologi"},"36":{"s":"Konfigurasi elektron atom dengan nomor atom 20 adalah","b":"Kimia"},"37":{"s":"Bilangan kuantum azimut (ℓ) untuk elektron pada subkulit 3p adalah","b":"Kimia"},"38":{"s":"Unsur dengan konfigurasi elektron berakhir 3s² 3p⁵ terletak pada","b":"Kimia"},"39":{"s":"Dalam satu periode dari kiri ke kanan, jari-jari atom cenderung","b":"Kimia"},"40":{"s":"Ikatan yang terbentuk antara Na dan Cl pada NaCl adalah","b":"Kimia"},"41":{"s":"Senyawa berikut yang memiliki ikatan hidrogen antarmolekul adalah","b":"Kimia"},"42":{"s":"Massa 0,5 mol CaCO₃ (Ar Ca=40, C=12, O=16) adalah","b":"Kimia"},"43":{"s":"Volume 3,01 × 10²³ molekul gas pada keadaan STP adalah","b":"Kimia"},"44":{"s":"Pada reaksi C₃H₈ + 5O₂ → 3CO₂ + 4H₂O, jumlah mol O₂ yang diperlukan untuk membakar sempu…","b":"Kimia"},"45":{"s":"pH larutan HCl 0,01 M adalah","b":"Kimia"},"46":{"s":"Larutan dengan pH = 11 memiliki konsentrasi ion OH⁻ sebesar","b":"Kimia"},"47":{"s":"Campuran yang dapat membentuk larutan penyangga adalah","b":"Kimia"},"48":{"s":"Sistem penyangga utama dalam darah manusia adalah","b":"Kimia"},"49":{"s":"Menurut Brønsted-Lowry, basa adalah zat yang","b":"Kimia"},"50":{"s":"Pada reaksi kesetimbangan N₂(g) + 3H₂(g) ⇌ 2NH₃(g) ΔH = −92 kJ, kesetimbangan bergeser k…","b":"Kimia"},"51":{"s":"Tetapan kesetimbangan Kc untuk reaksi 2SO₂ + O₂ ⇌ 2SO₃ dinyatakan sebagai","b":"Kimia"},"52":{"s":"Katalis mempercepat reaksi dengan cara","b":"Kimia"},"53":{"s":"Jika laju reaksi menjadi 2 kali lipat setiap kenaikan suhu 10 °C, maka kenaikan suhu dar…","b":"Kimia"},"54":{"s":"Bilangan oksidasi Mn dalam KMnO₄ adalah","b":"Kimia"},"55":{"s":"Pada sel volta, reaksi yang terjadi di anode adalah","b":"Kimia"},"56":{"s":"Reaksi yang menyerap kalor dari lingkungan disebut","b":"Kimia"},"57":{"s":"Jika ΔH reaksi bernilai negatif, maka","b":"Kimia"},"58":{"s":"Rumus molekul alkana dengan 5 atom karbon adalah","b":"Kimia"},"59":{"s":"Senyawa CH₃–CH₂–OH termasuk golongan","b":"Kimia"},"60":{"s":"Senyawa yang merupakan isomer fungsional dari etanol adalah","b":"Kimia"},"61":{"s":"Gugus fungsi –COOH dimiliki oleh golongan","b":"Kimia"},"62":{"s":"Sifat koligatif larutan bergantung pada","b":"Kimia"},"63":{"s":"Larutan berikut yang memiliki titik didih paling tinggi pada konsentrasi molal yang sama…","b":"Kimia"},"64":{"s":"Peristiwa penghamburan cahaya oleh partikel koloid disebut","b":"Kimia"},"65":{"s":"Darah termasuk sistem koloid dengan fase terdispersi dan medium pendispersi berupa","b":"Kimia"},"66":{"s":"Besaran berikut yang termasuk besaran vektor adalah","b":"Fisika"},"67":{"s":"Hasil pengukuran 0,00450 m memiliki angka penting sebanyak","b":"Fisika"},"68":{"s":"Sebuah mobil bergerak lurus dari keadaan diam dengan percepatan 2 m/s². Jarak yang ditem…","b":"Fisika"},"69":{"s":"Benda dilempar vertikal ke atas dengan kecepatan awal 20 m/s. Tinggi maksimum yang dicap…","b":"Fisika"},"70":{"s":"Sebuah benda bermassa 4 kg didorong gaya 20 N pada bidang licin. Percepatannya adalah","b":"Fisika"},"71":{"s":"Hukum III Newton menyatakan bahwa gaya aksi dan reaksi","b":"Fisika"},"72":{"s":"Sebuah benda bergerak melingkar dengan jari-jari 2 m dan kecepatan 4 m/s. Percepatan sen…","b":"Fisika"},"73":{"s":"Momen inersia bola pejal bermassa M dan jari-jari R terhadap sumbu melalui pusatnya adal…","b":"Fisika"},"74":{"s":"Sebuah benda 2 kg bergerak dengan kecepatan 6 m/s. Energi kinetiknya adalah","b":"Fisika"},"75":{"s":"Momentum benda bermassa 5 kg yang bergerak 4 m/s adalah","b":"Fisika"},"76":{"s":"Pada tumbukan lenting sempurna, besaran yang kekal adalah","b":"Fisika"},"77":{"s":"Sebuah pegas dengan konstanta 200 N/m ditarik sejauh 0,1 m. Energi potensial pegasnya ad…","b":"Fisika"},"78":{"s":"Periode ayunan sederhana bergantung pada","b":"Fisika"},"79":{"s":"Tekanan hidrostatis pada kedalaman 2 m dalam air (ρ = 1000 kg/m³) adalah","b":"Fisika"},"80":{"s":"Hukum Pascal menjadi dasar kerja alat","b":"Fisika"},"81":{"s":"Persamaan kontinuitas pada fluida ideal menyatakan bahwa jika luas penampang mengecil, m…","b":"Fisika"},"82":{"s":"Menurut asas Bernoulli, pada bagian pipa dengan kecepatan aliran lebih besar, tekanannya","b":"Fisika"},"83":{"s":"Kalor yang diperlukan untuk menaikkan suhu 2 kg air (c = 4.200 J/kg°C) sebesar 10 °C ada…","b":"Fisika"},"84":{"s":"Proses termodinamika pada suhu tetap disebut","b":"Fisika"},"85":{"s":"Efisiensi maksimum mesin Carnot yang bekerja antara 600 K dan 300 K adalah","b":"Fisika"},"86":{"s":"Gaya Coulomb antara dua muatan menjadi seperempat kali semula jika jaraknya","b":"Fisika"},"87":{"s":"Kuat arus yang mengalir pada hambatan 20 Ω dengan beda potensial 12 V adalah","b":"Fisika"},"88":{"s":"Tiga hambatan masing-masing 6 Ω disusun paralel. Hambatan penggantinya adalah","b":"Fisika"},"89":{"s":"Arah gaya Lorentz pada kawat berarus dalam medan magnet ditentukan dengan","b":"Fisika"},"90":{"s":"GGL induksi timbul pada kumparan apabila","b":"Fisika"},"91":{"s":"Cahaya merambat dari udara ke air. Yang terjadi adalah","b":"Fisika"},"92":{"s":"Pada peristiwa efek Doppler, frekuensi yang didengar pengamat akan lebih tinggi jika","b":"Fisika"},"93":{"s":"Cepat rambat gelombang dengan frekuensi 50 Hz dan panjang gelombang 4 m adalah","b":"Fisika"},"94":{"s":"Menurut model atom Bohr, elektron memancarkan energi ketika","b":"Fisika"},"95":{"s":"Peristiwa yang menunjukkan sifat partikel dari cahaya adalah","b":"Fisika"}},"kardio":{"1":{"s":"Urutan lapisan dinding jantung dari dalam ke luar adalah","b":"Anatomi"},"2":{"s":"Pericardium serosum lembar visceral dikenal juga dengan nama","b":"Anatomi"},"3":{"s":"Jantung berada di dalam rongga dada tepatnya pada","b":"Anatomi"},"4":{"s":"Cabang pertama dan terbesar dari arcus aortae adalah","b":"Anatomi"},"5":{"s":"Selain ramus interventricularis anterior, a. coronaria sinistra bercabang menjadi","b":"Anatomi"},"6":{"s":"Darah balik dari otot jantung dikumpulkan sinus coronarius lalu bermuara ke","b":"Anatomi"},"7":{"s":"Pembuluh yang dipakai sebagai tempat pengukuran tekanan darah dengan manset lengan adala…","b":"Anatomi"},"8":{"s":"Vena superfisial terpanjang pada tubuh manusia adalah","b":"Anatomi"},"9":{"s":"Setinggi vertebra lumbal IV, aorta abdominalis bercabang menjadi","b":"Anatomi"},"10":{"s":"Tunica media pada arteri terutama tersusun atas","b":"Histologi"},"11":{"s":"Discus intercalaris penting bagi otot jantung karena mengandung","b":"Histologi"},"12":{"s":"Serat Purkinje (myofibra conducens cardiaca) berjalan pada lapisan","b":"Histologi"},"13":{"s":"Laju impuls yang dihasilkan nodus SA pada keadaan normal adalah","b":"Fisiologi"},"14":{"s":"Perlambatan impuls sekitar 0,1 detik di nodus AV berfungsi untuk","b":"Fisiologi"},"15":{"s":"Gelombang QRS pada rekaman EKG menggambarkan","b":"Fisiologi"},"16":{"s":"Fase plateau pada potensial aksi otot jantung terjadi akibat masuknya ion","b":"Fisiologi"},"17":{"s":"Bunyi jantung pertama (S1) ditimbulkan oleh","b":"Fisiologi"},"18":{"s":"Hukum Frank-Starling menyatakan bahwa","b":"Fisiologi"},"19":{"s":"Bila laju denyut 80 kali per menit dan isi sekuncup 75 mL, curah jantungnya adalah","b":"Fisiologi"},"20":{"s":"Tahanan aliran darah paling peka terhadap perubahan","b":"Fisiologi"},"21":{"s":"Kecepatan aliran darah paling lambat terjadi di kapiler karena","b":"Fisiologi"},"22":{"s":"Pada ujung arteriol suatu kapiler, cairan bergerak keluar menuju jaringan karena","b":"Fisiologi"},"23":{"s":"Sistem penyangga utama yang menjaga pH darah tetap 7,35–7,45 adalah","b":"Biokimia"},"24":{"s":"Penanda darah yang paling khas untuk kerusakan otot jantung adalah","b":"Biokimia"},"25":{"s":"Setelah bayi lahir dan foramen ovale menutup, bekasnya dikenal sebagai","b":"Embriologi"}},"pendalaman":{"1":{"s":"Replikasi DNA pada siklus sel berlangsung pada fase","b":"Biologi"},"2":{"s":"Enzim yang membuka pilinan heliks ganda DNA saat replikasi adalah","b":"Biologi"},"3":{"s":"Kodon start pada proses translasi adalah","b":"Biologi"},"4":{"s":"Siklus Krebs berlangsung di dalam","b":"Biologi"},"5":{"s":"Persilangan dihibrid AaBb × AaBb menghasilkan rasio fenotipe","b":"Biologi"},"6":{"s":"Perempuan pembawa sifat buta warna menikah dengan laki-laki normal. Persentase anak laki…","b":"Biologi"},"7":{"s":"Hormon yang meningkatkan kadar glukosa darah dengan memecah glikogen hati adalah","b":"Biologi"},"8":{"s":"Reabsorpsi glukosa dari filtrat berlangsung di","b":"Biologi"},"9":{"s":"Sel yang secara langsung menghasilkan antibodi adalah","b":"Biologi"},"10":{"s":"Selubung mielin mempercepat penghantaran impuls saraf karena memungkinkan","b":"Biologi"},"11":{"s":"Zat yang mencegah alveolus kolaps saat ekspirasi adalah","b":"Biologi"},"12":{"s":"Hemoglobin melepaskan oksigen lebih mudah ketika pH darah menurun. Peristiwa ini disebut","b":"Biologi"},"13":{"s":"Sistem saraf berkembang dari lapisan embrional","b":"Biologi"},"14":{"s":"Fungsi utama badan Golgi adalah","b":"Biologi"},"15":{"s":"Bagian nefron yang paling berperan menciptakan gradien konsentrasi di medula ginjal adal…","b":"Biologi"},"16":{"s":"Massa dari 0,25 mol H₂SO₄ (Mr = 98) adalah","b":"Kimia"},"17":{"s":"Molaritas larutan yang dibuat dari 4 g NaOH (Mr = 40) dalam 500 mL air adalah","b":"Kimia"},"18":{"s":"pH larutan CH₃COOH 0,1 M dengan Ka = 1 × 10⁻⁵ adalah","b":"Kimia"},"19":{"s":"pH larutan NaOH 0,001 M adalah","b":"Kimia"},"20":{"s":"Bilangan oksidasi Cr dalam K₂Cr₂O₇ adalah","b":"Kimia"},"21":{"s":"Sebanyak 5,6 g Fe (Ar = 56) direaksikan dengan HCl berlebih. Volume gas H₂ yang terbentu…","b":"Kimia"},"22":{"s":"Ketika konsentrasi suatu pereaksi dinaikkan dua kali, laju reaksi menjadi empat kali. Or…","b":"Kimia"},"23":{"s":"Pada reaksi kesetimbangan yang bersifat endoterm, kenaikan suhu akan menggeser kesetimba…","b":"Kimia"},"24":{"s":"Konfigurasi elektron ion Fe³⁺ (nomor atom 26) adalah","b":"Kimia"},"25":{"s":"Bentuk molekul NH₃ adalah","b":"Kimia"},"26":{"s":"Di antara larutan berikut dengan kemolalan sama, penurunan titik beku terbesar dimiliki …","b":"Kimia"},"27":{"s":"Jumlah isomer rangka yang dimiliki C₄H₁₀ adalah","b":"Kimia"},"28":{"s":"Oksidasi terbatas terhadap alkohol primer menghasilkan","b":"Kimia"},"29":{"s":"Pada sel elektrolisis, reaksi yang berlangsung di katode adalah","b":"Kimia"},"30":{"s":"Suatu reaksi memiliki ΔH bernilai negatif. Hal ini berarti reaksi tersebut","b":"Kimia"},"31":{"s":"Sebuah benda jatuh bebas selama 3 sekon. Jarak yang ditempuhnya adalah","b":"Fisika"},"32":{"s":"Peluru ditembakkan dengan kecepatan 40 m/s membentuk sudut 30° terhadap horizontal. Ting…","b":"Fisika"},"33":{"s":"Benda bermassa 2 kg bergerak melingkar berjari-jari 3 m dengan kecepatan 6 m/s. Gaya sen…","b":"Fisika"},"34":{"s":"Usaha yang diperlukan untuk mengangkat benda 5 kg setinggi 4 m adalah","b":"Fisika"},"35":{"s":"Sebuah mesin melakukan usaha 600 J dalam waktu 30 sekon. Dayanya adalah","b":"Fisika"},"36":{"s":"Benda 2 kg bergerak 6 m/s menumbuk benda 4 kg yang diam. Bila tumbukannya tidak lenting …","b":"Fisika"},"37":{"s":"Dua pegas identik dengan konstanta 100 N/m disusun seri. Konstanta penggantinya adalah","b":"Fisika"},"38":{"s":"Periode ayunan sederhana dengan panjang tali 1 m mendekati","b":"Fisika"},"39":{"s":"Benda bervolume 0,002 m³ tercelup seluruhnya dalam air (ρ = 1000 kg/m³). Gaya angkat yan…","b":"Fisika"},"40":{"s":"Kalor yang diperlukan untuk melebur 0,5 kg es pada 0 °C (L = 336.000 J/kg) adalah","b":"Fisika"},"41":{"s":"Mesin Carnot bekerja antara reservoir 500 K dan 300 K. Efisiensinya adalah","b":"Fisika"},"42":{"s":"Tiga hambatan masing-masing 6 Ω disusun seri. Hambatan penggantinya adalah","b":"Fisika"},"43":{"s":"Lampu 60 W menyala selama 5 jam. Energi listrik yang terpakai adalah","b":"Fisika"},"44":{"s":"Transformator memiliki perbandingan lilitan primer terhadap sekunder 10 : 1. Bila tegang…","b":"Fisika"},"45":{"s":"Cahaya dengan frekuensi 6 × 10¹⁴ Hz memiliki panjang gelombang (c = 3 × 10⁸ m/s) sebesar","b":"Fisika"}}};
+
+const $ = s => document.querySelector(s);
+const el = (t,c,x)=>{const n=document.createElement(t);if(c)n.className=c;if(x!=null)n.textContent=x;return n;};
+
+function kapan(iso){
+  const d = new Date(iso); if (isNaN(d)) return "—";
+  const menit = Math.round((Date.now()-d.getTime())/60000);
+  if (menit < 2) return "baru saja";
+  if (menit < 60) return menit + " menit lalu";
+  const jam = Math.round(menit/60);
+  if (jam < 24) return jam + " jam lalu";
+  const hari = Math.round(jam/24);
+  if (hari === 1) return "kemarin";
+  if (hari < 30) return hari + " hari lalu";
+  return d.toLocaleDateString("id-ID",{day:"numeric",month:"short"});
+}
+function tanggalJam(iso){
+  const d = new Date(iso); if (isNaN(d)) return "—";
+  return d.toLocaleDateString("id-ID",{day:"numeric",month:"short"}) + ", " +
+         d.toLocaleTimeString("id-ID",{hour:"2-digit",minute:"2-digit"});
+}
+const pct = r => Math.round(r.skor / r.maks * 100);
+
+function tampilSetup(){
+  const isi = $("#isi"); isi.textContent = "";
+  const s = el("div","setup");
+  s.appendChild(el("h3",null,"Dasbor belum tersambung"));
+  s.appendChild(el("p",null,"Isi dulu dua baris pengaturan di bagian atas berkas ini, kemudian unggah ulang. Nilainya sama persis dengan yang kamu isikan di index.html."));
+  const ol = el("ol");
+  ["Buka supabase.com, masuk ke proyekmu.",
+   "Klik Settings, lalu API.",
+   "Salin Project URL ke SUPABASE_URL, dan kunci anon public ke SUPABASE_KEY."]
+   .forEach(t => ol.appendChild(el("li",null,t)));
+  s.appendChild(ol);
+  isi.appendChild(s);
+}
+
+function muat(){
+  if (!SUPABASE_URL || !SUPABASE_KEY){ tampilSetup(); return; }
+  $("#isi").textContent = ""; $("#isi").appendChild(el("div","empty","Memuat data…"));
+  fetch(SUPABASE_URL.replace(/\/+$/,"") + "/rest/v1/hasil?select=*&order=waktu.desc&limit=1000", {
+    headers: { "apikey": SUPABASE_KEY, "Authorization": "Bearer " + SUPABASE_KEY }
+  }).then(r => { if (!r.ok) throw new Error(r.status); return r.json(); })
+    .then(render)
+    .catch(e => {
+      const isi = $("#isi"); isi.textContent = "";
+      const w = el("div","warn");
+      w.appendChild(el("b",null,"Gagal memuat"));
+      w.appendChild(document.createTextNode("Data tidak bisa diambil (" + e.message + "). Periksa kembali URL dan kunci di bagian pengaturan, serta pastikan tabel hasil sudah dibuat beserta aturan aksesnya."));
+      isi.appendChild(w);
+    });
+}
+$("#btn-refresh").onclick = muat;
+
+function render(rows){
+  const isi = $("#isi"); isi.textContent = "";
+  if (!rows.length){
+    isi.appendChild(el("div","empty","Belum ada hasil yang masuk. Begitu ada yang menyelesaikan latihan, datanya muncul di sini."));
+    return;
+  }
+  rows.sort((a,b) => new Date(b.waktu) - new Date(a.waktu));
+
+  /* ---- ringkasan tim ---- */
+  const nama = Array.from(new Set(rows.map(r => r.nama)));
+  const soalTotal = rows.reduce((s,r) => s + (r.jumlah_soal||0), 0);
+  const rata = Math.round(rows.reduce((s,r) => s + pct(r), 0) / rows.length);
+  const menitTotal = Math.round(rows.reduce((s,r) => s + (r.durasi_detik||0), 0) / 60);
+  const kpi = el("div","kpi");
+  [[rows.length,"pengerjaan tercatat"],[nama.length,"peserta aktif"],
+   [soalTotal.toLocaleString("id-ID"),"soal dikerjakan"],[rata + "%","rata-rata capaian tim"],
+   [menitTotal + " mnt","total waktu belajar"]]
+  .forEach(([v,l]) => { const d = el("div"); d.appendChild(el("div","v",String(v))); d.appendChild(el("div","l",l)); kpi.appendChild(d); });
+  isi.appendChild(kpi);
+  const st = el("p","stamp","Diperbarui " + tanggalJam(new Date().toISOString()));
+  st.style.marginTop = "10px"; isi.appendChild(st);
+
+  /* ---- per peserta ---- */
+  isi.appendChild(el("h2","sec","Per peserta"));
+  isi.appendChild(el("p","sub","Grafik menunjukkan capaian tiap pengerjaan berurutan dari kiri ke kanan. Yang penting arahnya, bukan satu titik tertingginya."));
+  const grid = el("div","people");
+  nama.map(n => {
+    const mine = rows.filter(r => r.nama === n).slice().sort((a,b) => new Date(a.waktu) - new Date(b.waktu));
+    return {n, mine};
+  }).sort((a,b) => b.mine.length - a.mine.length).forEach(({n,mine}) => {
+    grid.appendChild(kartuPeserta(n, mine));
+  });
+  isi.appendChild(grid);
+
+  /* ---- soal tersering salah ---- */
+  const tally = {};
+  rows.forEach(r => {
+    (r.salah_nomor || []).forEach(no => {
+      const k = r.course + "#" + no;
+      tally[k] = (tally[k] || 0) + 1;
+    });
+  });
+  const top = Object.keys(tally).map(k => ({k, c:tally[k]}))
+    .filter(x => x.c > 1).sort((a,b) => b.c - a.c).slice(0,12);
+  isi.appendChild(el("h2","sec","Soal yang paling sering salah"));
+  isi.appendChild(el("p","sub","Hanya menampilkan soal yang salah lebih dari sekali. Inilah bahan pembahasan bersama yang paling terarah."));
+  const box = el("div","box");
+  if (!top.length){
+    box.appendChild(el("div","empty","Belum ada pola yang muncul. Butuh beberapa pengerjaan lagi supaya terlihat."));
+  } else {
+    top.forEach(x => {
+      const [course, no] = x.k.split("#");
+      const info = (INDEX_SOAL[course] || {})[no];
+      const row = el("div","miss");
+      row.appendChild(el("span","cnt", x.c + "× salah"));
+      const q = el("div","q");
+      q.appendChild(document.createTextNode(info ? info.s : "Soal nomor " + no));
+      q.appendChild(el("small",null, (info ? info.b + " · " : "") + namaCourse(course) + " nomor " + no));
+      row.appendChild(q);
+      box.appendChild(row);
+    });
+  }
+  isi.appendChild(box);
+
+  /* ---- tabel ---- */
+  isi.appendChild(el("h2","sec","Seluruh pengerjaan"));
+  isi.appendChild(el("p","sub","Terbaru di atas. Perhatikan kolom benar, salah, dan kosong — pola menebak lebih terbaca dari situ daripada dari skornya."));
+  const wrap = el("div","tblwrap"); const t = el("table");
+  const th = el("thead"); const tr = el("tr");
+  ["Peserta","Paket","Bagian","Skor","Capaian","B / S / K","Durasi","Waktu"].forEach(h => tr.appendChild(el("th",null,h)));
+  th.appendChild(tr); t.appendChild(th);
+  const tb = el("tbody");
+  rows.forEach(r => {
+    const row = el("tr");
+    row.appendChild(el("td",null,r.nama));
+    row.appendChild(el("td",null,r.course_nama || namaCourse(r.course)));
+    row.appendChild(el("td",null,r.mode === "all" ? "Semua" : r.mode));
+    row.appendChild(el("td","n", r.skor + " / " + r.maks));
+    const p = pct(r); const tdp = el("td","n", p + "%");
+    tdp.style.color = p >= 66 ? "var(--leaf)" : (p >= 40 ? "var(--ink)" : "var(--arterial)");
+    tdp.style.fontWeight = "600";
+    row.appendChild(tdp);
+    row.appendChild(el("td","n", r.benar + " / " + r.salah + " / " + r.kosong));
+    row.appendChild(el("td","n", Math.floor((r.durasi_detik||0)/60) + " mnt" + (r.otomatis ? " ⏱" : "")));
+    row.appendChild(el("td","n", tanggalJam(r.waktu)));
+    tb.appendChild(row);
+  });
+  t.appendChild(tb); wrap.appendChild(t); isi.appendChild(wrap);
+
+  const n1 = el("div","note");
+  n1.appendChild(el("b",null,"Membaca tabel ini"));
+  n1.appendChild(document.createTextNode("Tanda ⏱ pada kolom durasi berarti waktunya habis dan jawaban terkumpul otomatis. Banyak salah dengan sedikit kosong menandakan terlalu berani menebak; banyak kosong menandakan terlalu berhati-hati atau kehabisan waktu."));
+  isi.appendChild(n1);
+}
+
+function namaCourse(id){
+  return id === "simulasi" ? "Simulasi Penuh" : id === "kardio" ? "Kardiovaskular" : id === "pendalaman" ? "Pendalaman" : id;
+}
+
+function kartuPeserta(n, mine){
+  const card = el("div","person");
+  const ph = el("div","ph");
+  ph.appendChild(el("h3",null,n));
+  const terakhir = new Date(mine[mine.length-1].waktu);
+  const hariLalu = (Date.now() - terakhir.getTime()) / 86400000;
+  const kelas = hariLalu <= 2 ? "aktif" : hariLalu <= 5 ? "jarang" : "diam";
+  const teks = hariLalu <= 2 ? "Aktif" : hariLalu <= 5 ? "Mulai jarang" : "Lama tidak latihan";
+  ph.appendChild(el("span","pill " + kelas, teks));
+  card.appendChild(ph);
+  card.appendChild(el("p","last","Terakhir latihan " + kapan(mine[mine.length-1].waktu)));
+
+  /* sparkline */
+  const vals = mine.map(pct);
+  const sp = el("div","spark");
+  const W = 300, H = 56, pad = 4;
+  const svgNS = "http://www.w3.org/2000/svg";
+  const svg = document.createElementNS(svgNS,"svg");
+  svg.setAttribute("viewBox","0 0 " + W + " " + H);
+  svg.setAttribute("role","img");
+  svg.setAttribute("aria-label","Grafik capaian " + n + " dari " + vals.length + " pengerjaan");
+  const x = i => vals.length === 1 ? W/2 : pad + i * (W - pad*2) / (vals.length - 1);
+  const y = v => H - pad - (v/100) * (H - pad*2);
+  const base = document.createElementNS(svgNS,"line");
+  base.setAttribute("x1",0); base.setAttribute("x2",W);
+  base.setAttribute("y1",y(0)); base.setAttribute("y2",y(0));
+  base.setAttribute("stroke","currentColor"); base.setAttribute("stroke-opacity",".18");
+  svg.appendChild(base);
+  if (vals.length > 1){
+    const line = document.createElementNS(svgNS,"polyline");
+    line.setAttribute("points", vals.map((v,i) => x(i) + "," + y(v)).join(" "));
+    line.setAttribute("fill","none");
+    line.setAttribute("stroke","var(--venous)");
+    line.setAttribute("stroke-width","2");
+    line.setAttribute("stroke-linejoin","round");
+    line.setAttribute("stroke-linecap","round");
+    svg.appendChild(line);
+  }
+  vals.forEach((v,i) => {
+    const c = document.createElementNS(svgNS,"circle");
+    c.setAttribute("cx",x(i)); c.setAttribute("cy",y(v)); c.setAttribute("r", i === vals.length-1 ? 4 : 2.6);
+    c.setAttribute("fill", i === vals.length-1 ? "var(--arterial)" : "var(--venous)");
+    svg.appendChild(c);
+  });
+  const lastLabel = document.createElementNS(svgNS,"text");
+  lastLabel.setAttribute("x", Math.min(x(vals.length-1) + 7, W - 2));
+  lastLabel.setAttribute("y", Math.max(y(vals[vals.length-1]) - 7, 11));
+  lastLabel.setAttribute("text-anchor", x(vals.length-1) > W - 40 ? "end" : "start");
+  lastLabel.setAttribute("font-family","IBM Plex Mono, monospace");
+  lastLabel.setAttribute("font-size","11");
+  lastLabel.setAttribute("fill","var(--arterial)");
+  lastLabel.textContent = vals[vals.length-1] + "%";
+  svg.appendChild(lastLabel);
+  sp.appendChild(svg);
+  const arah = vals.length > 1
+    ? (vals[vals.length-1] > vals[0] ? "Naik " + (vals[vals.length-1]-vals[0]) + " poin sejak latihan pertama"
+      : vals[vals.length-1] < vals[0] ? "Turun " + (vals[0]-vals[vals.length-1]) + " poin sejak latihan pertama"
+      : "Belum banyak berubah sejak latihan pertama")
+    : "Baru satu kali latihan";
+  sp.appendChild(el("div","cap",arah));
+  card.appendChild(sp);
+
+  const stats = el("div","pstats");
+  const hariAktif = new Set(mine.map(r => new Date(r.waktu).toDateString())).size;
+  const menit = Math.round(mine.reduce((s,r) => s + (r.durasi_detik||0), 0)/60);
+  [[mine.length,"latihan"],[hariAktif,"hari aktif"],[menit + "m","total waktu"]].forEach(([v,l]) => {
+    const d = el("div"); d.appendChild(el("div","v",String(v))); d.appendChild(el("div","l",l)); stats.appendChild(d);
+  });
+  card.appendChild(stats);
+
+  /* bidang terlemah */
+  const agg = {};
+  mine.forEach(r => {
+    const pb = r.per_bidang || {};
+    Object.keys(pb).forEach(b => {
+      const a = agg[b] || (agg[b] = {benar:0,total:0});
+      a.benar += pb[b].benar; a.total += pb[b].total;
+    });
+  });
+  const daftar = Object.keys(agg).map(b => ({b, p: agg[b].benar/agg[b].total}));
+  if (daftar.length){
+    daftar.sort((a,b) => a.p - b.p);
+    const w = el("div","weak");
+    const lemah = daftar[0], kuat = daftar[daftar.length-1];
+    w.appendChild(document.createTextNode("Paling perlu dibantu: "));
+    w.appendChild(el("b",null, lemah.b + " (" + Math.round(lemah.p*100) + "%)"));
+    if (daftar.length > 1){
+      w.appendChild(document.createTextNode(" · sudah kuat di " + kuat.b + " (" + Math.round(kuat.p*100) + "%)"));
+    }
+    card.appendChild(w);
+  }
+  return card;
+}
+
+muat();
+</script>
+</body>
+</html>
