@@ -4,46 +4,53 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta name="description" content="Ruang latihan dan materi untuk peserta AVIMSA 2026 — tema kardiovaskular.">
-<meta name="theme-color" content="#B0142C">
-<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Ctext y='.9em' font-size='90'%3E%F0%9F%AB%80%3C/text%3E%3C/svg%3E">
-<title>Ruang Latihan AVIMSA</title>
+<meta name="theme-color" content="#E9779C">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Ctext y='.9em' font-size='90'%3E%F0%9F%8C%B8%3C/text%3E%3C/svg%3E">
+<title>BANTAI AVIMSAAA 2K26</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,600;9..144,700;9..144,800&family=IBM+Plex+Sans:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500&display=swap">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Press+Start+2P&family=IBM+Plex+Sans:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500&display=swap">
 <style>
+/* ================= PALET SAKURA PIXEL ================= */
 :root{
-  --paper:#FBF8F5;--surface:#FFFFFF;--surface-2:#F4EEE9;--surface-3:#EAE1DA;
-  --ink:#1E1719;--ink-2:#4E4348;--muted:#7F7176;
-  --rule:#E7DED8;--rule-2:#D2C5BD;
-  --arterial:#B0142C;--arterial-soft:#FBEAEC;
-  --venous:#1F5E86;--venous-soft:#E7F0F6;
-  --leaf:#2C6B4F;--leaf-soft:#E5F1EA;
-  --sun:#C8871B;--sun-soft:#FBF0DC;
-  --good:#2C6B4F;--warn:#9A6B12;
-  --r-lg:16px;--r-md:10px;--r-sm:6px;
-  --shadow:0 1px 2px rgba(30,23,25,.05),0 14px 34px -22px rgba(30,23,25,.4);
+  --paper:#F2F8FE;--surface:#FFFFFF;--surface-2:#E4EFFA;--surface-3:#D3E3F3;
+  --ink:#3B2426;--ink-2:#6B4E50;--muted:#8C7476;
+  --rule:#CBDCEE;--rule-2:#3B2426;--line:#3B2426;
+  --arterial:#B3355C;--arterial-soft:#FBE4EC;
+  --venous:#4A7FA8;--venous-soft:#E4EFFA;
+  --leaf:#4E8F5B;--leaf-soft:#E3F1E6;
+  --sun:#B07A12;--sun-soft:#FBF0DC;
+  --good:#4E8F5B;--warn:#B07A12;
+  --sky-1:#BFDCF5;--sky-2:#E8F2FB;--grass:#A8CBA4;--grass-deep:#6E9A72;
+  --sakura:#E9779C;--sakura-deep:#B3355C;--sakura-pale:#F6C3D4;--moon:#D9A22B;
+  --r-lg:0px;--r-md:0px;--r-sm:0px;
+  --shadow:4px 4px 0 var(--line);
 }
 @media (prefers-color-scheme:dark){:root:not([data-theme="light"]){
-  --paper:#15100F;--surface:#1E1817;--surface-2:#271F1E;--surface-3:#332A28;
-  --ink:#F5EDE9;--ink-2:#D3C5C0;--muted:#9E8E89;
-  --rule:#312826;--rule-2:#4A3D3A;
-  --arterial:#F0687C;--arterial-soft:#361C21;
-  --venous:#7CB4DC;--venous-soft:#132632;
-  --leaf:#6FC79B;--leaf-soft:#132A21;
-  --sun:#E0AC50;--sun-soft:#2C2317;
-  --good:#6FC79B;--warn:#E0AC50;
-  --shadow:0 1px 2px rgba(0,0,0,.45),0 14px 34px -22px rgba(0,0,0,.95);
+  --paper:#111C2E;--surface:#1B2940;--surface-2:#253651;--surface-3:#314563;
+  --ink:#EFE3D2;--ink-2:#C4B49E;--muted:#8E8172;
+  --rule:#31455F;--rule-2:#0A1320;--line:#0A1320;
+  --arterial:#EFA9BF;--arterial-soft:#3A2634;
+  --venous:#7A9EC4;--venous-soft:#1D2E45;
+  --leaf:#7FC08C;--leaf-soft:#1B2E23;
+  --sun:#F0DFA8;--sun-soft:#2C2317;
+  --good:#7FC08C;--warn:#F0DFA8;
+  --sky-1:#16233A;--sky-2:#2B3E5C;--grass:#4A6B84;--grass-deep:#33506A;
+  --sakura:#D98BA6;--sakura-deep:#EFA9BF;--sakura-pale:#3A2634;--moon:#F0DFA8;
+  --shadow:4px 4px 0 var(--line);
 }}
 :root[data-theme="dark"]{
-  --paper:#15100F;--surface:#1E1817;--surface-2:#271F1E;--surface-3:#332A28;
-  --ink:#F5EDE9;--ink-2:#D3C5C0;--muted:#9E8E89;
-  --rule:#312826;--rule-2:#4A3D3A;
-  --arterial:#F0687C;--arterial-soft:#361C21;
-  --venous:#7CB4DC;--venous-soft:#132632;
-  --leaf:#6FC79B;--leaf-soft:#132A21;
-  --sun:#E0AC50;--sun-soft:#2C2317;
-  --good:#6FC79B;--warn:#E0AC50;
-  --shadow:0 1px 2px rgba(0,0,0,.45),0 14px 34px -22px rgba(0,0,0,.95);
+  --paper:#111C2E;--surface:#1B2940;--surface-2:#253651;--surface-3:#314563;
+  --ink:#EFE3D2;--ink-2:#C4B49E;--muted:#8E8172;
+  --rule:#31455F;--rule-2:#0A1320;--line:#0A1320;
+  --arterial:#EFA9BF;--arterial-soft:#3A2634;
+  --venous:#7A9EC4;--venous-soft:#1D2E45;
+  --leaf:#7FC08C;--leaf-soft:#1B2E23;
+  --sun:#F0DFA8;--sun-soft:#2C2317;
+  --good:#7FC08C;--warn:#F0DFA8;
+  --sky-1:#16233A;--sky-2:#2B3E5C;--grass:#4A6B84;--grass-deep:#33506A;
+  --sakura:#D98BA6;--sakura-deep:#EFA9BF;--sakura-pale:#3A2634;--moon:#F0DFA8;
+  --shadow:4px 4px 0 var(--line);
 }
 *{box-sizing:border-box;-webkit-tap-highlight-color:transparent}
 html{color-scheme:light dark}
@@ -256,18 +263,124 @@ footer{border-top:1px solid var(--rule);margin-top:64px;padding-top:20px;font-si
   .tl-row{grid-template-columns:1fr;gap:2px}
   .hero{padding-top:32px}
 }
+
+/* ================= LAPIS TEMA SAKURA PIXEL ================= */
+h1,h2,h3,h2.sec,.qcard h3,.gc h3,.course h3,.link-card b{
+  font-family:"Press Start 2P",monospace!important;font-weight:400!important;
+  letter-spacing:0!important;line-height:1.45!important}
+h1{font-size:clamp(16px,3.4vw,30px)!important}
+h2.sec{font-size:15px!important;margin:52px 0 10px!important}
+.qcard h3,.gc h3,.course h3,.link-card b{font-size:13px!important}
+.st .v,.cd .v,.score .v,.qhead .qn{font-family:"Press Start 2P",monospace!important;font-weight:400!important}
+.cd .v{font-size:22px!important}.score .v{font-size:18px!important}.st .v{font-size:17px!important}
+.qhead .qn{font-size:15px!important;color:var(--ink)!important}
+.timer{font-family:"Press Start 2P",monospace!important;font-size:15px!important}
+
+/* kotak: sudut siku, garis tebal, bayangan padat */
+.qcard,.gc,.course,.setup,.qbox,.link-card,.rev,.score div,.tblwrap,.fact,.st,
+.cd div,.navgrid button,.opt,.btn,.filters button,.tabs button,.themebtn,.opt{
+  border-radius:0!important}
+.qcard,.gc,.course,.setup,.qbox,.link-card,.score div,.tblwrap,.fact,.cd div{
+  border:3px solid var(--line)!important;box-shadow:var(--shadow)!important}
+.st,.rev{border:3px solid var(--line)!important;box-shadow:none!important}
+.qcard{transition:transform .1s steps(2),box-shadow .1s steps(2)}
+.qcard:hover{transform:translate(-3px,-3px)!important;box-shadow:7px 7px 0 var(--line)!important}
+.qcard .ic{border-radius:0!important;border:2px solid var(--line)}
+
+/* bar atas */
+.bar{border-bottom:3px solid var(--line);backdrop-filter:none;background:var(--paper)}
+.brand .dot{border-radius:0!important;background:var(--sakura)!important;color:var(--line)!important;
+  border:3px solid var(--line);width:26px;height:26px}
+.brand b{font-family:"Press Start 2P",monospace!important;font-size:11px!important;font-weight:400!important}
+.tabs button{background:var(--surface);border:3px solid var(--line);box-shadow:3px 3px 0 var(--line);
+  color:var(--ink);font-weight:600;padding:8px 13px}
+.tabs button:hover{background:var(--sakura-pale);color:var(--ink)}
+.tabs button[aria-current="page"]{background:var(--sakura)!important;color:#2A1218!important;
+  box-shadow:none!important;transform:translate(3px,3px)}
+:root[data-theme="dark"] .tabs button[aria-current="page"],
+:root:not([data-theme="light"]) .tabs button[aria-current="page"]{color:#16233A!important}
+
+/* tombol tema */
+.theme{display:flex;align-items:center;gap:8px;margin-left:10px}
+.theme .lbl{font-family:"IBM Plex Mono",monospace;font-size:10px;letter-spacing:.14em;
+  text-transform:uppercase;color:var(--muted)}
+.themebtn{background:var(--surface);border:3px solid var(--line);box-shadow:3px 3px 0 var(--line);
+  color:var(--ink);padding:8px 12px;font-size:13px;font-weight:600;font-family:inherit;cursor:pointer}
+.themebtn + .themebtn{margin-left:8px}
+.themebtn:hover{background:var(--sakura-pale)}
+.themebtn[aria-pressed="true"]{background:var(--sakura);color:#2A1218;box-shadow:none;transform:translate(3px,3px)}
+
+/* tombol umum */
+.btn{border:3px solid var(--line);box-shadow:3px 3px 0 var(--line);background:var(--surface);
+  color:var(--ink);font-weight:600;padding:10px 18px}
+.btn:hover{opacity:1;background:var(--sakura-pale)}
+.btn:active{transform:translate(3px,3px);box-shadow:none}
+.btn.acc{background:var(--sakura);color:#2A1218}
+.btn.ghost{background:var(--surface)}
+.filters button{border:3px solid var(--line);box-shadow:3px 3px 0 var(--line);background:var(--surface);color:var(--ink)}
+.filters button[aria-pressed="true"]{background:var(--sakura);color:#2A1218;border-color:var(--line);
+  box-shadow:none;transform:translate(3px,3px)}
+
+/* pemandangan hero */
+.scene{border:3px solid var(--line);box-shadow:6px 6px 0 var(--line);overflow:hidden;
+  background:linear-gradient(180deg,var(--sky-1),var(--sky-2));margin:22px 0 26px}
+.scene canvas{display:block;width:100%;height:auto;aspect-ratio:1080/300;image-rendering:pixelated}
+.hero{padding-top:26px}
+.hero .hi{color:var(--sakura-deep)}
+
+/* EKG */
+.ecg{height:auto!important;border:3px solid var(--line);background:var(--surface);
+  box-shadow:var(--shadow);padding:8px 10px;margin:22px 0 4px}
+.ecg canvas{display:block;width:100%;height:76px;image-rendering:auto}
+
+/* ujian */
+.examtop{border-bottom:3px solid var(--line);background:var(--paper)}
+.prog{height:14px!important;border-radius:0!important;background:var(--surface-2);border:2px solid var(--line)}
+.prog i{border-radius:0!important;background:var(--sakura)!important}
+.navgrid button{border:2px solid var(--line);background:var(--surface);color:var(--ink)}
+.navgrid button.ans{background:var(--sakura);color:#2A1218}
+.navgrid button.flag{border-color:var(--line);background:var(--moon);color:#2A1F08}
+.navgrid button.cur{outline:3px solid var(--sakura-deep);outline-offset:1px}
+.opt{border:3px solid var(--line)!important;box-shadow:3px 3px 0 var(--line);background:var(--surface)}
+.opt:hover{background:var(--sakura-pale)}
+.opt[aria-pressed="true"]{background:var(--sakura-pale)!important;box-shadow:none;transform:translate(3px,3px)}
+.rev .verdict{border-radius:0!important;border:2px solid var(--line)}
+.tl{border-left:5px solid var(--sakura)}
+.tl-row::before{border-radius:0!important;border:3px solid var(--line);background:var(--surface)}
+.tl-row.now::before{background:var(--sakura-deep)}
+.note,.warnbox{border-radius:0!important;border-left-width:5px}
+.bar-row .tr,.bar-row .tr i{border-radius:0!important}
+.bar-row .tr{border:2px solid var(--line);background:var(--surface-2)}
+.bar-row .tr i{background:var(--sakura)}
+.setup input,.setup select{border:3px solid var(--line);border-radius:0}
+footer{border-top:3px solid var(--line)}
+
+.course .badge,.qhead .qb,.qhead .fl,.fact button,.rev .verdict{border-radius:0!important;border:2px solid var(--line)!important}
+.qhead .fl[aria-pressed="true"]{background:var(--moon);color:#2A1F08}
+.gc .tag,.qcard .go{color:var(--sakura-deep)}
+
+/* kelopak sakura di latar halaman */
+#petals{position:fixed;inset:0;width:100%;height:100%;pointer-events:none;z-index:5;
+  image-rendering:pixelated}
+body.exam-on #petals{display:none}
+@media (prefers-reduced-motion:reduce){#petals{display:none}}
 </style>
 </head>
 <body>
 
 <div class="bar">
   <div class="bar-in">
-    <div class="brand"><span class="dot">♥</span><b>Ruang Latihan AVIMSA</b></div>
+    <div class="brand"><span class="dot">♥</span><b>BANTAI AVIMSAAA 2K26</b></div>
     <div class="tabs" role="tablist">
       <button data-go="beranda" aria-current="page">Beranda</button>
       <button data-go="materi">Materi</button>
       <button data-go="latihan">Latihan</button>
-      <button data-go="riwayat">Riwayat</button>
+      <button data-go="riwayat">Skor</button>
+    </div>
+    <div class="theme">
+      <span class="lbl">Theme</span>
+      <button class="themebtn" data-theme-set="light" aria-pressed="false">Light</button>
+      <button class="themebtn" data-theme-set="dark" aria-pressed="false">Dark</button>
     </div>
   </div>
 </div>
@@ -276,34 +389,30 @@ footer{border-top:1px solid var(--rule);margin-top:64px;padding-top:20px;font-si
 
 <!-- ============ BERANDA ============ -->
 <section class="view" id="v-beranda">
+  <div class="scene" aria-hidden="true"><canvas id="scene" width="1080" height="300"></canvas></div>
+
   <div class="hero">
-    <p class="hi" id="greet">Selamat datang</p>
-    <h1>Belajar jantung, <em>tanpa deg-degan</em></h1>
-    <p class="lede">Semua yang kamu butuhkan untuk AVIMSA 2026 ada di satu tempat — materi kardiovaskular, tiga paket latihan, dan catatan perkembanganmu sendiri. Kerjakan sesantai atau seserius yang kamu mau.</p>
-    <div class="ecg" aria-hidden="true">
-      <svg viewBox="0 0 1200 66" preserveAspectRatio="none">
-        <path class="base" d="M0 33 H1200"/>
-        <path class="trace" d="M0 33 H150 l16 0 8 -9 8 18 8 -9 H320 l14 0 6 -4 10 -26 12 52 10 -22 8 0 H620 l16 0 8 -9 8 18 8 -9 H820 l14 0 6 -4 10 -26 12 52 10 -22 8 0 H1200"/>
-      </svg>
-    </div>
+    <h1>Latihan <em>AVIMSA 2026</em></h1>
+    <p class="lede">So farr target kita 30 besar dulu, semua latihannya sudah kumasukin disini.. Have fun 🌸</p>
+    <div class="ecg" aria-hidden="true"><canvas id="ecg" width="1040" height="76"></canvas></div>
   </div>
 
   <div class="quick">
     <button class="qcard" data-jump="latihan">
       <span class="ic i-red">✎</span>
-      <h3>Mulai latihan</h3>
+      <h3>Course Soal</h3>
       <p>Tiga paket dengan tujuan berbeda — simulasi penuh, khusus kardiovaskular, atau pendalaman hitungan.</p>
       <span class="go">Pilih paket →</span>
     </button>
     <button class="qcard" data-jump="materi">
       <span class="ic i-blue">◈</span>
-      <h3>Baca materi</h3>
+      <h3>Materi</h3>
       <p>Atlas kardiovaskular lengkap dengan glosarium istilah Latin dan diagram, ditulis untuk anak SMA.</p>
       <span class="go">Buka materi →</span>
     </button>
     <button class="qcard" data-jump="riwayat">
       <span class="ic i-leaf">◔</span>
-      <h3>Lihat perkembangan</h3>
+      <h3>Skor</h3>
       <p>Rekam jejak setiap latihan yang kamu selesaikan, supaya kelihatan bagian mana yang membaik.</p>
       <span class="go">Cek riwayat →</span>
     </button>
@@ -319,8 +428,8 @@ footer{border-top:1px solid var(--rule);margin-top:64px;padding-top:20px;font-si
     <button id="fact-next">Fakta lain</button>
   </div>
 
-  <h2 class="sec">Menuju hari-H</h2>
-  <p class="sub" id="cd-note">Hitung mundur ke babak penyisihan, Minggu 13 September 2026 pukul 10.15 WITA.</p>
+  <h2 class="sec">Hari-H</h2>
+  <p class="sub" id="cd-note">Penyisihan Minggu, 13 September 2026 jam 10.15 WITA. Tinggal segini lagi.</p>
   <div class="cd" id="countdown">
     <div><div class="v" id="cd-d">–</div><div class="l">Hari</div></div>
     <div><div class="v" id="cd-h">–</div><div class="l">Jam</div></div>
@@ -359,7 +468,7 @@ footer{border-top:1px solid var(--rule);margin-top:64px;padding-top:20px;font-si
   <div class="hero" style="padding-bottom:0">
     <p class="hi">Bahan belajar</p>
     <h1>Materi</h1>
-    <p class="lede">Satu atlas untuk sisi kedokterannya, dan peta prioritas supaya waktumu tidak habis di tempat yang salah.</p>
+    <p class="lede">Baca ini dulu sebelum ngerjain soalnya.. anatomi pakai istilah Latin Sobotta ya</p>
   </div>
 
   <a class="link-card" href="https://claude.ai/code/artifact/8be2b044-95ac-4ffa-aa92-48a5acbdc7b7" target="_blank" rel="noopener">
@@ -395,8 +504,8 @@ footer{border-top:1px solid var(--rule);margin-top:64px;padding-top:20px;font-si
   <div id="pick">
     <div class="hero" style="padding-bottom:0">
       <p class="hi">Tiga paket</p>
-      <h1>Pilih latihanmu</h1>
-      <p class="lede">Ketiganya punya tujuan berbeda. Kalau baru pertama kali, mulai dari Simulasi Penuh untuk tahu posisimu sekarang.</p>
+      <h1>Course Soal</h1>
+      <p class="lede">Pilih paketnya, timernya jalan otomatis.. santai aja, ini buat latihan bukan penilaian</p>
     </div>
     <div class="courses" id="courses"></div>
   </div>
@@ -419,7 +528,7 @@ footer{border-top:1px solid var(--rule);margin-top:64px;padding-top:20px;font-si
       </div>
       <p class="hint" id="setup-hint"></p>
       <p style="margin:20px 0 0;display:flex;gap:9px;flex-wrap:wrap">
-        <button class="btn acc" id="btn-start">Mulai</button>
+        <button class="btn acc" id="btn-start">Start</button>
         <button class="btn ghost" id="btn-back">Kembali</button>
       </p>
     </div>
@@ -457,8 +566,8 @@ footer{border-top:1px solid var(--rule);margin-top:64px;padding-top:20px;font-si
 <section class="view" id="v-riwayat" hidden>
   <div class="hero" style="padding-bottom:0">
     <p class="hi">Rekam jejak</p>
-    <h1>Riwayat latihan</h1>
-    <p class="lede">Tersimpan di perangkat ini. Yang menarik bukan skor tertingginya, melainkan arah grafiknya dari waktu ke waktu.</p>
+    <h1>Skor kamu</h1>
+    <p class="lede">Skormu kesimpen di HP atau laptop ini aja. Kalau mau kukoreksi, pencet salin ringkasan terus kirim ke aku.</p>
   </div>
   <div id="riwayat-body"></div>
 </section>
@@ -501,20 +610,13 @@ function go(name){
 document.querySelectorAll(".tabs button").forEach(b => b.onclick = () => go(b.dataset.go));
 document.querySelectorAll("[data-jump]").forEach(b => b.onclick = () => go(b.dataset.jump));
 
-/* ---------- greeting ---------- */
-(function(){
-  const h = new Date().getHours();
-  const g = h < 11 ? "Selamat pagi" : h < 15 ? "Selamat siang" : h < 19 ? "Selamat sore" : "Selamat malam";
-  $("#greet").textContent = g + " — semoga hari ini produktif";
-})();
-
 /* ---------- countdown ---------- */
 const TARGET = new Date("2026-09-13T10:15:00+08:00").getTime();
 function tickCount(){
   const diff = TARGET - Date.now();
   if (diff <= 0){
     $("#countdown").hidden = true;
-    $("#cd-note").textContent = "Babak penyisihan sudah berlangsung. Semoga hasilnya sepadan dengan usahamu.";
+    $("#cd-note").textContent = "Penyisihannya udah jalan. Gas, kerjain sebisanya!";
     return;
   }
   const s = Math.floor(diff/1000);
@@ -627,7 +729,7 @@ function showPick(){
       const bestP = Math.max.apply(null, mine.map(r => Math.round(r.skor/r.maks*100)));
       card.appendChild(el("p","mine","Sudah dikerjakan " + mine.length + "× · terbaik " + bestP + "%"));
     }
-    const btn = el("button","btn acc", mine.length ? "Kerjakan lagi" : "Mulai paket ini");
+    const btn = el("button","btn acc", mine.length ? "Gas lagi" : "Start");
     btn.onclick = () => openSetup(c);
     card.appendChild(btn);
     box.appendChild(card);
@@ -899,7 +1001,7 @@ function renderRiwayat(){
   if (!rows.length){
     body.appendChild(el("div","empty","Belum ada latihan yang diselesaikan di perangkat ini."));
     const p = el("p"); p.style.textAlign = "center";
-    const b = el("button","btn acc","Mulai latihan pertama"); b.onclick = () => go("latihan");
+    const b = el("button","btn acc","Start latihan pertama"); b.onclick = () => go("latihan");
     p.appendChild(b); body.appendChild(p);
     return;
   }
@@ -955,5 +1057,181 @@ function renderRiwayat(){
 showPick();
 window.addEventListener("beforeunload", e => { if (S && timerId){ e.preventDefault(); e.returnValue = ""; } });
 </script>
+
+<script>
+/* ================= TEMA SAKURA PIXEL: pemandangan, EKG, tombol tema ================= */
+(function(){
+  var root = document.documentElement;
+  var reduce = matchMedia('(prefers-reduced-motion: reduce)').matches;
+  function css(n){ return getComputedStyle(root).getPropertyValue(n).trim(); }
+  function dark(){ return root.getAttribute('data-theme') === 'dark' ||
+    (!root.getAttribute('data-theme') && matchMedia('(prefers-color-scheme: dark)').matches); }
+
+  /* ---------- tombol Light / Dark ---------- */
+  var tbs = [].slice.call(document.querySelectorAll('[data-theme-set]'));
+  function syncTheme(){
+    var cur = dark() ? 'dark' : 'light';
+    tbs.forEach(function(b){ b.setAttribute('aria-pressed', String(b.dataset.themeSet === cur)); });
+    if (window.__drawScene) window.__drawScene();
+  }
+  tbs.forEach(function(b){
+    b.addEventListener('click', function(){
+      root.setAttribute('data-theme', b.dataset.themeSet);
+      try { localStorage.setItem('avimsa-theme', b.dataset.themeSet); } catch(e){}
+      syncTheme();
+    });
+  });
+  try { var saved = localStorage.getItem('avimsa-theme'); if (saved) root.setAttribute('data-theme', saved); } catch(e){}
+  matchMedia('(prefers-color-scheme: dark)').addEventListener('change', syncTheme);
+  syncTheme();
+
+  /* ---------- pemandangan sakura ---------- */
+  var c = document.getElementById('scene');
+  if (c){
+    var x = c.getContext('2d'), P = 6, COLS = c.width/P, HORIZON = 40, ROWS = c.height/P;
+    function cell(cx,cy,w,h,col){ x.fillStyle=col; x.fillRect(cx*P,cy*P,w*P,h*P); }
+    function nz(i,j){ var v=Math.sin(i*127.1+j*311.7)*43758.5453; return v-Math.floor(v); }
+    var BLOBS = [[27,10,13,7.5],[40,12,10,6],[21,15,8,5],[35,6,9,5],[46,16,6.5,4],
+                 [24,7,7,4.5],[32,17,10,4],[43,9,7,4.5],[17,11,6,4]];
+    function inCanopy(cx,cy){
+      for (var i=0;i<BLOBS.length;i++){
+        var b=BLOBS[i], dx=(cx-b[0])/b[2], dy=(cy-b[1])/b[3];
+        if (dx*dx+dy*dy <= 1 - nz(cx,cy)*0.16) return true;
+      }
+      return false;
+    }
+    function limb(x0,y0,x1,y1,w,col){
+      var steps = Math.max(Math.abs(x1-x0), Math.abs(y1-y0));
+      for (var i=0;i<=steps;i++){
+        var t = steps ? i/steps : 0, ww = Math.max(1, Math.round(w - t*(w-1)));
+        cell(Math.round(x0+(x1-x0)*t), Math.round(y0+(y1-y0)*t), ww, 1, col);
+      }
+    }
+    function cloud(cx,cy,big,col){
+      if (big){ cell(cx,cy+2,20,4,col); cell(cx+4,cy,12,3,col); cell(cx+8,cy-2,6,3,col); cell(cx+16,cy+1,7,3,col); }
+      else { cell(cx,cy+1,12,3,col); cell(cx+3,cy-1,6,3,col); cell(cx+8,cy,5,2,col); }
+    }
+    function tree(){
+      var bark=dark()?'#241A20':css('--ink'), bark2=dark()?'#3E2C34':'#5A3A34', base=css('--sakura'),
+          pale=dark()?css('--sakura-deep'):'#F6C3D4', deep=css('--sakura-deep');
+      limb(34,27,26,17,3,bark); limb(34,26,43,18,3,bark); limb(33,24,20,20,2,bark);
+      limb(35,23,34,13,3,bark); limb(26,20,21,14,2,bark); limb(43,20,47,15,2,bark);
+      limb(30,18,28,12,1,bark); limb(40,19,44,12,1,bark);
+      for (var y=22;y<HORIZON;y++){
+        var lean = Math.round(Math.sin((y-22)/8)*1.9);
+        var w = y>37?7:(y>34?6:(y>30?5:(y>26?4:3)));
+        var sx = 35+lean-w;
+        cell(sx,y,w,1,bark);
+        if (w>3) cell(sx+w-2,y,1,1,bark2);
+      }
+      [[26,39,6],[35,39,7],[24,39,2],[42,39,2],[27,38,3],[38,38,3]].forEach(function(r){ cell(r[0],r[1],r[2],1,bark); });
+      for (var cx=12;cx<=54;cx++){
+        for (var cy=1;cy<=22;cy++){
+          if (!inCanopy(cx,cy)) continue;
+          var n = nz(cx*1.7,cy*2.3), col = base, lit = (cy-1)/21;
+          if (n < .16 + (1-lit)*.14) col = pale;
+          else if (n > .72 + lit*.06) col = deep;
+          if (cy > 17 && n < .30) col = deep;
+          cell(cx,cy,1,1,col);
+        }
+      }
+      [[30,15,2,1],[38,14,2,1],[25,12,1,2],[45,13,2,1]].forEach(function(g){ cell(g[0],g[1],g[2],g[3],pale); });
+    }
+    function bench(){
+      var wood = dark()?'#E8EEF7':'#FFFFFF', wood2 = dark()?'#93A5BC':'#DCE5F0', iron = dark()?'#0F1826':css('--ink');
+      var bx = 112, top = 30;
+      cell(bx+1,top,2,12,iron); cell(bx+20,top,2,12,iron);
+      cell(bx,top+1,23,2,wood); cell(bx,top+4,23,2,wood2); cell(bx,top+7,23,2,wood);
+      cell(bx-1,top+10,25,2,wood); cell(bx-1,top+12,25,1,wood2);
+      cell(bx+2,HORIZON,2,2,iron); cell(bx+19,HORIZON,2,2,iron);
+    }
+    function ground(){
+      var g1=css('--grass'), g2=css('--grass-deep'),
+          pet=dark()?css('--sakura-deep'):css('--sakura'), pet2=dark()?'#4C5C78':'#F6C3D4';
+      cell(0,HORIZON,COLS,ROWS-HORIZON,g1);
+      for (var cx=0;cx<COLS;cx++) for (var cy=HORIZON;cy<ROWS;cy++){
+        var n = nz(cx*3.1,cy*7.7);
+        if (n<.13) cell(cx,cy,1,1,g2);
+        else if (n<.19) cell(cx,cy,1,1,pet2);
+        else if (n<.225) cell(cx,cy,1,1,pet);
+      }
+      cell(27,HORIZON,14,1,g2); cell(30,HORIZON+1,8,1,g2); cell(110,HORIZON+1,27,1,g2);
+    }
+    var clouds = [{x:96,y:5,s:1},{x:150,y:12,s:0},{x:60,y:16,s:0},{x:128,y:22,s:1},{x:20,y:8,s:0}]
+      .map(function(o){ o.v = .012 + Math.random()*.014; return o; });
+    var sky = [];
+    for (var i=0;i<26;i++) sky.push({x:Math.random()*COLS, y:Math.random()*HORIZON,
+      d:.05+Math.random()*.09, ph:Math.random()*6.28, big:Math.random()<.35});
+    function drawScene(){
+      var g = x.createLinearGradient(0,0,0,c.height);
+      g.addColorStop(0,css('--sky-1')); g.addColorStop(1,css('--sky-2'));
+      x.fillStyle=g; x.fillRect(0,0,c.width,c.height);
+      var lum = dark()?css('--moon'):'#FFF4CE';
+      cell(151,4,5,5,lum); cell(150,5,7,3,lum);
+      clouds.forEach(function(cl){ cloud(Math.round(cl.x), cl.y, cl.s,
+        dark()?'rgba(230,240,255,.13)':'rgba(255,255,255,.9)'); });
+      ground(); bench(); tree();
+      var pc=css('--sakura'), pp=dark()?css('--sakura-deep'):'#F6C3D4';
+      sky.forEach(function(p){ cell(Math.round(p.x), Math.round(p.y), 1,1, p.big?pc:pp); });
+    }
+    window.__drawScene = drawScene;
+    var t = 0;
+    function sceneLoop(){
+      t++;
+      if (!document.body.classList.contains('exam-on')){
+        sky.forEach(function(p){
+          p.y += p.d; p.x += Math.sin(t/50+p.ph)*.10 - .035;
+          if (p.y > HORIZON-.5){ p.y = -1; p.x = 8 + Math.random()*52; }
+          if (p.x < -1) p.x = COLS;
+        });
+        clouds.forEach(function(cl){ cl.x += cl.v; if (cl.x > COLS+6) cl.x = -26; });
+      }
+      drawScene();
+      requestAnimationFrame(sceneLoop);
+    }
+    drawScene();
+    if (!reduce) requestAnimationFrame(sceneLoop);
+  }
+
+  /* ---------- EKG ---------- */
+  var e = document.getElementById('ecg');
+  if (e){
+    var ex = e.getContext('2d'), mid = 38, BEAT = 300, trace = [];
+    function beat(x0,w){
+      var pts = [];
+      function pt(f,v){ pts.push([x0+f*w, mid-v]); }
+      pt(0,0); pt(.30,0); pt(.335,7); pt(.365,-5); pt(.40,0); pt(.52,0);
+      pt(.545,-6); pt(.565,26); pt(.595,-18); pt(.615,0); pt(.70,0);
+      pt(.745,9); pt(.79,-4); pt(.83,0); pt(1,0);
+      return pts;
+    }
+    for (var k=0; k*BEAT < e.width+BEAT; k++) trace = trace.concat(beat(k*BEAT, BEAT));
+    var reveal = 0;
+    function ecgLoop(){
+      ex.clearRect(0,0,e.width,e.height);
+      ex.fillStyle = css('--surface-2'); ex.fillRect(0, mid, e.width, 1);
+      ex.save(); ex.beginPath(); ex.rect(0,0,reveal,e.height); ex.clip();
+      ex.beginPath();
+      trace.forEach(function(pt,i){ i ? ex.lineTo(pt[0],pt[1]) : ex.moveTo(pt[0],pt[1]); });
+      ex.strokeStyle = css('--sakura-deep'); ex.lineWidth = 2;
+      ex.lineJoin = 'round'; ex.lineCap = 'round'; ex.stroke();
+      ex.restore();
+      if (reduce) reveal = e.width;
+      else { reveal += 5.5; if (reveal > e.width + 260) reveal = 0; }
+      requestAnimationFrame(ecgLoop);
+    }
+    ecgLoop();
+  }
+
+  /* ---------- kelopak berhenti saat ujian jalan ---------- */
+  var run = document.getElementById('exam-run');
+  if (run && window.MutationObserver){
+    new MutationObserver(function(){
+      document.body.classList.toggle('exam-on', !run.hidden);
+    }).observe(run, {attributes:true, attributeFilter:['hidden']});
+  }
+})();
+</script>
+
 </body>
 </html>
