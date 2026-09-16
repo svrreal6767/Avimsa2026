@@ -376,7 +376,7 @@ body.exam-on #petals{display:none}
 .m1-t.lat td:nth-child(2){font-style:italic}
 .m1-t tr:last-child td{border-bottom:0}
 .m1-fig{margin:10px 0 22px;padding:16px;background:var(--surface);border:1px solid var(--rule)}
-.m1-fig svg{width:100%;height:auto;display:block;font-family:"IBM Plex Sans",sans-serif}
+.m1-fig img{cursor:zoom-in;width:100%;max-width:760px;height:auto;display:block;margin:0 auto;background:#fff}
 .m1-fig figcaption{font-size:13px;color:var(--muted);margin-top:8px}
 .m1-body{max-width:72ch;font-size:15.5px;line-height:1.65}
 .m1-body p{margin:0 0 12px}
@@ -386,6 +386,36 @@ body.exam-on #petals{display:none}
 .m1-chain span{padding:4px 8px;background:var(--arterial-soft);border:1px solid var(--arterial)}
 .m1-chain i{color:var(--muted);font-size:12px}
 .m1-key{margin:8px 0;padding:12px 16px;border:1px solid var(--rule);background:var(--surface)}
+.fc{background:var(--surface);border:1px solid var(--rule);padding:16px;max-width:640px}
+.fc-ctl{display:flex;flex-wrap:wrap;gap:8px;align-items:center;margin-bottom:14px}
+.fc select,.fc-ctl button,.fc-nav button{font:inherit;font-size:13.5px;padding:6px 10px;border:1px solid var(--line);background:var(--surface);color:var(--ink);cursor:pointer}
+.fc-chk{font-size:13px;color:var(--ink-2);display:flex;gap:6px;align-items:center}
+.fc-card{display:flex;flex-direction:column;justify-content:center;align-items:center;gap:10px;width:100%;min-height:200px;padding:24px;border:2px solid var(--line);box-shadow:var(--shadow);background:var(--venous-soft);color:var(--ink);cursor:pointer;font:inherit;text-align:center}
+.fc-card.back{background:var(--arterial-soft)}
+.fc-side{font-size:11px;letter-spacing:.12em;text-transform:uppercase;color:var(--muted)}
+.fc-txt{font-size:clamp(19px,4vw,26px);font-weight:700;line-height:1.3}
+.fc-card.back.lat .fc-txt,.fc-card.latf:not(.back) .fc-txt{font-style:italic}
+.fc-hint{font-size:12px;color:var(--muted)}
+.fc-fn{font-size:14.5px;line-height:1.5;max-width:52ch;color:var(--ink-2);border-top:1px dashed var(--rule);padding-top:10px}
+.fc-fn:empty{display:none}
+.fc-fn{text-align:left}
+.fc-row{display:block;margin-bottom:6px}
+.fc-fn b{color:var(--ink)}
+.fc-nav{display:flex;justify-content:space-between;align-items:center;gap:8px;margin-top:12px}
+.fc-nav button{flex:1}
+.fc-nav span{font-size:13px;color:var(--muted);white-space:nowrap}
+.fc .fc-yes{background:var(--leaf-soft);border-color:var(--leaf)}
+.fc .fc-no{background:var(--sun-soft);border-color:var(--sun)}
+.fc-bar{height:8px;background:var(--surface-2);margin-top:14px}
+.fc-bar i{display:block;height:100%;width:0;background:var(--leaf)}
+.fc-stat{font-size:13px;color:var(--muted);margin:6px 0 0}
+.m1-h3{font-size:18px;font-weight:700;margin:26px 0 10px}
+.m1-gal{display:grid;grid-template-columns:repeat(auto-fill,minmax(260px,1fr));gap:14px;margin-bottom:10px}
+.m1-gal figure{margin:0;background:var(--surface);border:1px solid var(--rule);padding:10px}
+.m1-gal img{width:100%;height:auto;display:block;background:#fff;cursor:zoom-in}
+.m1-gal figcaption{font-size:13px;line-height:1.5;color:var(--ink-2);margin-top:8px}
+.m1-zoom{position:fixed;inset:0;background:rgba(0,0,0,.85);display:flex;align-items:center;justify-content:center;z-index:50;padding:16px;cursor:zoom-out}
+.m1-zoom img{max-width:100%;max-height:100%;background:#fff}
 .m1-key summary{cursor:pointer;font-weight:700;color:var(--sakura-deep)}
 </style>
 </head>
@@ -417,7 +447,7 @@ body.exam-on #petals{display:none}
 
   <div class="hero">
     <h1>Latihan <em>AVIMSA 2026</em></h1>
-    <p class="lede">So farr target kita 30 besar dulu, semua latihannya sudah kumasukin disini.. Have fun 🌸</p>
+    <p class="lede">Good job sudah lolos penyisihan awall, tetep semangat perjalanan masih panjang, but it's gonna be worth it! 🌸</p>
     <div class="ecg" aria-hidden="true"><canvas id="ecg" width="1040" height="76"></canvas></div>
   </div>
 
@@ -498,9 +528,30 @@ body.exam-on #petals{display:none}
   <div class="note"><b>Jangan lupa</b>Registrasi ulang 30 besar paling lambat 23 September. Lewat dari itu = gugur, sekeren apa pun nilainya.</div>
 
   <nav class="m1-toc" aria-label="Isi">
-    <a href="#m1-jadwal">Jadwal</a><a href="#m1-jantung">Latin jantung</a><a href="#m1-pembuluh">Latin pembuluh</a><a href="#m1-ekstrem">Pelvis & ekstremitas</a><a href="#m1-ht">Hipertensi</a><a href="#m1-pjk">PJK & SKA</a><a href="#m1-gj">Gagal jantung</a><a href="#m1-katup">Katup</a><a href="#m1-ekg">EKG</a><a href="#m1-aritmia">Aritmia</a><a href="#m1-syok">Syok</a><a href="#m1-tes">Tes</a>
+    <a href="#m1-flash">Flashcard</a><a href="#m1-jadwal">Jadwal</a><a href="#m1-jantung">Latin jantung</a><a href="#m1-pembuluh">Latin pembuluh</a><a href="#m1-ekstrem">Pelvis & ekstremitas</a><a href="#m1-ht">Hipertensi</a><a href="#m1-pjk">PJK & SKA</a><a href="#m1-gj">Gagal jantung</a><a href="#m1-katup">Katup</a><a href="#m1-ekg">EKG</a><a href="#m1-aritmia">Aritmia</a><a href="#m1-syok">Syok</a><a href="#m1-tes">Tes</a>
   </nav>
 
+
+  <h2 class="sec" id="m1-flash">Flashcard istilah</h2>
+  <p class="sub">Semua istilah Latin di halaman ini. Tebak dulu, baru balik kartunya. Sisi Latin juga memuat definisi, letak, dan fungsi strukturnya. Kartu yang ditandai "Sudah hafal" disimpan di perangkat ini.</p>
+  <div class="fc">
+    <div class="fc-ctl">
+      <select id="fc-deck" aria-label="Kelompok"><option value="semua">Semua istilah</option><option value="jantung">Jantung</option><option value="pembuluh">Pembuluh besar</option><option value="ekstremitas">Pelvis &amp; ekstremitas</option></select>
+      <select id="fc-dir" aria-label="Arah"><option value="il">Indonesia → Latin</option><option value="li">Latin → Indonesia</option></select>
+      <label class="fc-chk"><input type="checkbox" id="fc-hide" checked> Sembunyikan yang sudah hafal</label>
+      <button id="fc-shuf">Acak</button><button id="fc-reset">Reset hafalan</button>
+    </div>
+    <button class="fc-card" id="fc-card" aria-live="polite">
+      <span class="fc-side" id="fc-side"></span>
+      <span class="fc-txt" id="fc-txt"></span>
+      <span class="fc-fn" id="fc-fn"></span>
+      <span class="fc-hint" id="fc-hint"></span>
+    </button>
+    <div class="fc-nav"><button id="fc-prev">← Sebelumnya</button><span id="fc-pos"></span><button id="fc-next">Berikutnya →</button></div>
+    <div class="fc-nav"><button id="fc-no" class="fc-no">Belum hafal</button><button id="fc-yes" class="fc-yes">Sudah hafal ✓</button></div>
+    <div class="fc-bar"><i id="fc-prog"></i></div>
+    <p class="fc-stat" id="fc-stat"></p>
+  </div>
   <h2 class="sec" id="m1-jadwal">Jadwal harian</h2>
   <div class="m1-t"><table>
     <tr><th>Hari</th><th>Target</th></tr>
@@ -517,46 +568,19 @@ body.exam-on #petals{display:none}
   <!-- ===== LATIN JANTUNG ===== -->
   <h2 class="sec" id="m1-jantung">Jantung (Cor)</h2>
   <p class="sub">Darah kotor masuk dari kanan, dipompa ke paru, kembali bersih ke kiri, lalu dipompa ke seluruh tubuh. Setiap pintu keluar-masuk dijaga satu katup.</p>
-  <figure class="m1-fig">
-  <svg viewBox="0 0 640 380" role="img" aria-label="Skema ruang dan katup jantung">
-    <defs><marker id="ah" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M0 0L10 5L0 10z" fill="var(--ink)"/></marker></defs>
-    <rect x="90" y="70" width="190" height="110" style="fill:var(--venous-soft);stroke:var(--venous)" stroke-width="2"/>
-    <rect x="90" y="200" width="190" height="130" style="fill:var(--venous-soft);stroke:var(--venous)" stroke-width="2"/>
-    <rect x="360" y="70" width="190" height="110" style="fill:var(--arterial-soft);stroke:var(--arterial)" stroke-width="2"/>
-    <rect x="360" y="200" width="190" height="130" style="fill:var(--arterial-soft);stroke:var(--arterial)" stroke-width="2"/>
-    <line x1="320" y1="60" x2="320" y2="340" style="stroke:var(--ink)" stroke-width="4"/>
-    <g font-size="13" style="fill:var(--ink)" text-anchor="middle" font-weight="600">
-      <text x="185" y="120">Atrium dextrum</text><text x="185" y="270">Ventriculus dexter</text>
-      <text x="455" y="120">Atrium sinistrum</text><text x="455" y="270">Ventriculus sinister</text>
-    </g>
-    <g font-size="11" style="fill:var(--muted)" text-anchor="middle">
-      <text x="185" y="138">serambi kanan</text><text x="185" y="288">bilik kanan (dinding tipis)</text>
-      <text x="455" y="138">serambi kiri</text><text x="455" y="288">bilik kiri (dinding paling tebal)</text>
-      <text x="320" y="356">Septum interatriale / interventriculare</text>
-    </g>
-    <!-- valves -->
-    <rect x="150" y="184" width="70" height="12" style="fill:var(--sun)"/>
-    <rect x="420" y="184" width="70" height="12" style="fill:var(--sun)"/>
-    <g font-size="11" style="fill:var(--ink)"><text x="30" y="194">V. tricuspidalis</text><text x="498" y="194">V. mitralis</text></g>
-    <!-- flows -->
-    <g style="stroke:var(--ink)" stroke-width="2" fill="none" marker-end="url(#ah)">
-      <path d="M40 40 L110 85"/><path d="M40 150 L100 150"/>
-      <path d="M130 320 L130 360 L60 360 L60 250 L20 250"/>
-      <path d="M620 40 L540 85"/>
-      <path d="M520 320 L520 360 L610 360 L610 250"/>
-    </g>
-    <g font-size="11" style="fill:var(--ink)">
-      <text x="4" y="32">V. cava superior</text><text x="4" y="168">V. cava inferior</text>
-      <text x="4" y="236">Tr. pulmonalis</text><text x="4" y="272">→ paru</text>
-      <text x="520" y="32">Vv. pulmonales ← paru</text>
-      <text x="560" y="242">Aorta → tubuh</text>
-    </g>
-    <g font-size="10" style="fill:var(--muted)"><text x="138" y="375">valva trunci pulmonalis</text><text x="470" y="375">valva aortae</text></g>
-  </svg>
-  <figcaption>Biru = darah miskin O₂, merah = kaya O₂. Kuning = katup atrioventrikular.</figcaption>
-  </figure>
+  <figure class="m1-fig"><img src="img/jantung.jpg" alt="Anatomi dalam jantung" loading="lazy"><figcaption>Ruang, katup, dan pembuluh besar jantung. Aliran searah dijaga dua set katup. Sumber: bahan kuliah Blok 2 Kardiorespirasi FKIK ULM (Histologi).</figcaption></figure>
+  <figure class="m1-fig"><img src="img/sirkulasi.jpg" alt="Skema sirkulasi darah" loading="lazy"><figcaption>Alur peredaran darah: kanan → paru → kiri → tubuh. Sumber: bahan kuliah Blok 2 Kardiorespirasi FKIK ULM (Histologi).</figcaption></figure>
 
-  <div class="m1-t lat"><table>
+  <h3 class="m1-h3">Foto anatomis penting cor</h3>
+  <div class="m1-gal">
+    <figure><img src="img/cor-spesimen.jpg" alt="Spesimen jantung dibelah" loading="lazy"><figcaption><b>Spesimen jantung dibelah.</b> Perhatikan dinding ventrikel kiri yang jauh lebih tebal dari kanan, mm. papillares, chordae tendineae, dan septum interventriculare.</figcaption></figure>
+    <figure><img src="img/cor-basis-katup.jpg" alt="Basis jantung dan empat katup" loading="lazy"><figcaption><b>Basis cordis dilihat dari atas</b> (atrium dibuang). Empat katup: valva trunci pulmonalis dan valva aortae (semilunar), valva mitralis dan valva tricuspidalis (atrioventrikular).</figcaption></figure>
+    <figure><img src="img/cor-dinding.jpg" alt="Dinding ventrikel dan musculus papillaris" loading="lazy"><figcaption><b>Dinding ventrikel.</b> Musculus papillaris dan valvula di dalam ventrikel, serta lapisan dinding ventriculus.</figcaption></figure>
+    <figure><img src="img/cor-perikardium.jpg" alt="Pericardium" loading="lazy"><figcaption><b>Pericardium.</b> Kantong pembungkus jantung; celah di antara lapisannya berisi cairan perikardial.</figcaption></figure>
+    <figure><img src="img/cor-insitu.jpg" alt="Jantung in situ di mediastinum" loading="lazy"><figcaption><b>Cor in situ.</b> Jantung terbungkus pericardium di mediastinum, diapit kedua paru; di atasnya mediastinum superior.</figcaption></figure>
+  </div>
+  <p class="sub">Sumber foto: bahan kuliah Blok 2 Kardiorespirasi FKIK ULM (Histologi dan Anatomi).</p>
+  <div class="m1-t lat" data-deck="jantung"><table>
     <tr><th>Indonesia</th><th>Latin</th></tr>
     <tr><td>Aurikula</td><td>Auricula atrii dextri / sinistri</td></tr>
     <tr><td>Katup trikuspid</td><td>Valva atrioventricularis dextra (valva tricuspidalis)</td></tr>
@@ -588,22 +612,8 @@ body.exam-on #petals{display:none}
 
   <!-- ===== LATIN PEMBULUH ===== -->
   <h2 class="sec" id="m1-pembuluh">Pembuluh besar, kepala-leher, abdomen</h2>
-  <figure class="m1-fig">
-  <svg viewBox="0 0 640 300" role="img" aria-label="Cabang arcus aortae">
-    <path d="M150 280 L150 150 Q150 60 320 60 Q490 60 490 150 L490 290" fill="none" style="stroke:var(--arterial)" stroke-width="22" stroke-linecap="butt"/>
-    <g style="stroke:var(--arterial)" stroke-width="10">
-      <line x1="230" y1="72" x2="200" y2="10"/><line x1="320" y1="52" x2="320" y2="4"/><line x1="430" y1="70" x2="500" y2="10"/>
-      <line x1="200" y1="30" x2="150" y2="4"/>
-    </g>
-    <g font-size="12" style="fill:var(--ink)">
-      <text x="30" y="210">Aorta ascendens</text><text x="280" y="110">Arcus aortae</text><text x="505" y="220">Aorta descendens</text>
-      <text x="10" y="18">A. subclavia dextra</text><text x="10" y="50">Truncus brachiocephalicus →</text>
-      <text x="328" y="24" font-size="11">A. carotis communis</text><text x="328" y="38" font-size="11">sinistra</text><text x="505" y="20">A. subclavia sinistra</text>
-    </g>
-    <g font-size="11" style="fill:var(--muted)"><text x="190" y="170">Dari kanan ke kiri: 1 batang, lalu 2 arteri kiri.</text><text x="190" y="188">Truncus brachiocephalicus bercabang jadi</text><text x="190" y="206">a. subclavia dextra + a. carotis communis dextra.</text></g>
-  </svg>
-  </figure>
-  <div class="m1-t lat"><table>
+  <figure class="m1-fig"><img src="img/mediastinum.jpg" alt="Mediastinum superior" loading="lazy"><figcaption>Arcus aortae dan pembuluh besar di mediastinum superior. Sumber: bahan kuliah Blok 2 Kardiorespirasi FKIK ULM (Anatomi).</figcaption></figure>
+  <div class="m1-t lat" data-deck="pembuluh"><table>
     <tr><th>Indonesia</th><th>Latin</th></tr>
     <tr><td>Aorta dada / perut</td><td>Pars thoracica / Pars abdominalis aortae</td></tr>
     <tr><td>A. karotis interna / eksterna</td><td>Arteria carotis interna / externa</td></tr>
@@ -632,35 +642,19 @@ body.exam-on #petals{display:none}
     <b>Tungkai</b><span>Aorta</span>→<span>A. iliaca communis</span>→<span>A. iliaca externa</span>→<i>lig. inguinale</i>→<span>A. femoralis</span>→<i>hiatus adductorius</i>→<span>A. poplitea</span>→<span>A. tibialis anterior → A. dorsalis pedis</span><span>A. tibialis posterior (+ A. fibularis)</span>
   </div>
 
-  <figure class="m1-fig">
-  <svg viewBox="0 0 640 420" role="img" aria-label="Titik-titik nadi pada tubuh">
-    <g style="fill:none;stroke:var(--ink-2)" stroke-width="3" stroke-linecap="round">
-      <circle cx="320" cy="50" r="30"/>
-      <path d="M320 80 L320 240"/>
-      <path d="M320 100 L240 170 L210 250"/><path d="M320 100 L400 170 L430 250"/>
-      <path d="M320 240 L280 330 L270 400"/><path d="M320 240 L360 330 L370 400"/>
-    </g>
-    <g style="fill:var(--arterial)">
-      <circle cx="300" cy="40" r="6"/><circle cx="332" cy="92" r="6"/><circle cx="243" cy="168" r="6"/>
-      <circle cx="214" cy="240" r="6"/><circle cx="306" cy="256" r="6"/><circle cx="283" cy="324" r="6"/>
-      <circle cx="262" cy="392" r="6"/><circle cx="376" cy="404" r="6"/>
-    </g>
-    <g font-size="12" style="fill:var(--ink)">
-      <g style="stroke:var(--muted)"><line x1="180" y1="40" x2="294" y2="40"/><line x1="180" y1="168" x2="237" y2="168"/><line x1="180" y1="240" x2="208" y2="240"/><line x1="460" y1="256" x2="306" y2="256"/><line x1="180" y1="324" x2="277" y2="324"/><line x1="180" y1="392" x2="256" y2="392"/><line x1="460" y1="404" x2="382" y2="404"/><line x1="460" y1="92" x2="338" y2="92"/></g>
-      <text x="175" y="44" text-anchor="end">A. temporalis superficialis</text>
-      <text x="175" y="164" text-anchor="end">A. brachialis</text><text x="175" y="180" text-anchor="end" font-size="10" style="fill:var(--muted)">fossa cubitalis</text>
-      <text x="175" y="236" text-anchor="end">A. radialis</text><text x="175" y="252" text-anchor="end" font-size="10" style="fill:var(--muted)">pergelangan, sisi ibu jari</text>
-      <text x="175" y="320" text-anchor="end">A. poplitea</text><text x="175" y="336" text-anchor="end" font-size="10" style="fill:var(--muted)">lipat lutut</text>
-      <text x="175" y="388" text-anchor="end">A. tibialis posterior</text><text x="175" y="404" text-anchor="end" font-size="10" style="fill:var(--muted)">belakang malleolus medialis</text>
-      <text x="466" y="88">A. carotis communis</text><text x="466" y="104" font-size="10" style="fill:var(--muted)">samping trakea</text>
-      <text x="466" y="252">A. femoralis</text><text x="466" y="268" font-size="10" style="fill:var(--muted)">bawah lig. inguinale</text>
-      <text x="466" y="400">A. dorsalis pedis</text><text x="466" y="416" font-size="10" style="fill:var(--muted)">punggung kaki</text>
-    </g>
-  </svg>
-  <figcaption>Delapan titik nadi yang sering diminta di pos dan OSCE.</figcaption>
-  </figure>
+  <div class="m1-t"><table>
+    <tr><th>Titik nadi</th><th>Letak</th></tr>
+    <tr><td>A. temporalis superficialis</td><td>Depan telinga</td></tr>
+    <tr><td>A. carotis communis</td><td>Samping trakea</td></tr>
+    <tr><td>A. brachialis</td><td>Fossa cubitalis, sisi medial</td></tr>
+    <tr><td>A. radialis</td><td>Pergelangan, sisi ibu jari</td></tr>
+    <tr><td>A. femoralis</td><td>Bawah lig. inguinale</td></tr>
+    <tr><td>A. poplitea</td><td>Lipat lutut (fossa poplitea)</td></tr>
+    <tr><td>A. tibialis posterior</td><td>Belakang malleolus medialis</td></tr>
+    <tr><td>A. dorsalis pedis</td><td>Punggung kaki</td></tr>
+  </table></div>
 
-  <div class="m1-t lat"><table>
+  <div class="m1-t lat" data-deck="ekstremitas"><table>
     <tr><th>Indonesia</th><th>Latin</th></tr>
     <tr><td>A. iliaka interna</td><td>Arteria iliaca interna</td></tr>
     <tr><td>A. glutea superior / inferior</td><td>Arteria glutea superior / inferior</td></tr>
@@ -688,28 +682,15 @@ body.exam-on #petals{display:none}
     <p><b>Mengapa berbahaya.</b> Tekanan tinggi yang lama membuat bilik kiri memompa melawan beban berat, sehingga ototnya menebal (LVH). Otot tebal butuh O₂ lebih banyak dan lama-lama jadi kaku lalu gagal. Dinding arteri juga rusak, mempercepat aterosklerosis. Organ target: jantung, otak (stroke), ginjal (gagal ginjal), retina.</p>
     <p><b>Mekanisme RAAS</b> — penting karena jadi dasar kerja banyak obat:</p>
   </div>
-  <figure class="m1-fig">
-  <svg viewBox="0 0 640 230" role="img" aria-label="Sistem renin-angiotensin-aldosteron">
-    <defs><marker id="ah2" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto"><path d="M0 0L10 5L0 10z" fill="var(--ink)"/></marker></defs>
-    <g font-size="12" text-anchor="middle" style="fill:var(--ink)">
-      <rect x="10" y="20" width="130" height="50" style="fill:var(--surface-2);stroke:var(--rule)"/><text x="75" y="42">Ginjal: aliran</text><text x="75" y="58">darah turun</text>
-      <rect x="170" y="20" width="130" height="50" style="fill:var(--surface-2);stroke:var(--rule)"/><text x="235" y="42">Renin keluar</text><text x="235" y="58">angiotensinogen → A-I</text>
-      <rect x="330" y="20" width="130" height="50" style="fill:var(--sun-soft);stroke:var(--sun)"/><text x="395" y="42">ACE (di paru)</text><text x="395" y="58">A-I → Angiotensin II</text>
-      <rect x="490" y="10" width="140" height="40" style="fill:var(--arterial-soft);stroke:var(--arterial)"/><text x="560" y="35">Pembuluh menyempit</text>
-      <rect x="490" y="60" width="140" height="40" style="fill:var(--arterial-soft);stroke:var(--arterial)"/><text x="560" y="78">Aldosteron ↑</text><text x="560" y="93" font-size="10">tahan Na⁺ &amp; air</text>
-      <rect x="490" y="150" width="140" height="44" style="fill:var(--arterial);stroke:var(--arterial)"/><text x="560" y="177" style="fill:#fff" font-weight="700">Tekanan darah ↑</text>
-    </g>
-    <g style="stroke:var(--ink)" stroke-width="2" marker-end="url(#ah2)" fill="none">
-      <path d="M140 45H168"/><path d="M300 45H328"/><path d="M460 40L488 30"/><path d="M460 50L488 78"/>
-      <path d="M560 50 L560 60" marker-end="none"/><path d="M560 100V148"/>
-    </g>
-    <g font-size="11" style="fill:var(--leaf)">
-      <text x="20" y="160">Obat ACE-inhibitor (…pril) memblok di sini</text>
-      <text x="20" y="180">Obat ARB (…sartan) memblok reseptor A-II</text>
-      <text x="20" y="200">Spironolakton memblok aldosteron</text>
-    </g>
-  </svg>
-  </figure>
+  <div class="m1-t"><table>
+    <tr><th>Tahap RAAS</th><th>Yang terjadi</th><th>Obat yang memblok</th></tr>
+    <tr><td>Ginjal</td><td>Aliran darah turun → renin keluar</td><td>—</td></tr>
+    <tr><td>Renin</td><td>Angiotensinogen → angiotensin I</td><td>—</td></tr>
+    <tr><td>ACE (paru)</td><td>Angiotensin I → angiotensin II</td><td>ACE-inhibitor (…pril)</td></tr>
+    <tr><td>Angiotensin II</td><td>Pembuluh menyempit + aldosteron keluar</td><td>ARB (…sartan)</td></tr>
+    <tr><td>Aldosteron</td><td>Ginjal menahan Na⁺ dan air</td><td>Spironolakton</td></tr>
+    <tr><td>Hasil</td><td>Tekanan darah naik</td><td></td></tr>
+  </table></div>
   <div class="m1-body">
     <p><b>Terapi.</b> Mulai dari gaya hidup: garam &lt;5 g/hari, turun berat badan, olahraga, berhenti merokok. Obat lini pertama: ACE-i/ARB, penghambat kanal kalsium (amlodipin, melebarkan arteri), diuretik tiazid (buang garam-air). Efek samping khas ACE-i: <b>batuk kering</b> (bradikinin menumpuk).</p>
     <p><b>Krisis hipertensi</b> (≥180/120): disebut <i>emergensi</i> bila ada kerusakan organ akut (nyeri dada, sesak, kejang, penurunan kesadaran) → turunkan cepat di RS. Tanpa kerusakan organ = <i>urgensi</i> → turunkan bertahap dengan obat oral.</p>
@@ -718,30 +699,7 @@ body.exam-on #petals{display:none}
   <!-- ===== PJK ===== -->
   <h2 class="sec" id="m1-pjk">Penyakit jantung koroner &amp; SKA</h2>
   <p class="sub">Otot jantung hanya dapat darah dari a. coronaria. Kalau arteri itu menyempit, otot kekurangan O₂ (iskemia); kalau tersumbat total, otot mati (infark).</p>
-  <figure class="m1-fig">
-  <svg viewBox="0 0 640 200" role="img" aria-label="Tahap aterosklerosis sampai trombus">
-    <g font-size="12" text-anchor="middle" style="fill:var(--ink)">
-      <g transform="translate(20,20)">
-        <rect width="180" height="100" style="fill:var(--arterial-soft);stroke:var(--arterial)" stroke-width="3"/>
-        <rect y="30" width="180" height="40" style="fill:var(--arterial)" opacity=".35"/>
-        <text x="90" y="130" font-weight="600">1. Normal</text><text x="90" y="148" font-size="11" style="fill:var(--muted)">lumen lebar</text>
-      </g>
-      <g transform="translate(230,20)">
-        <rect width="180" height="100" style="fill:var(--arterial-soft);stroke:var(--arterial)" stroke-width="3"/>
-        <path d="M40 30 Q90 -10 140 30 Z" transform="translate(0,30)" style="fill:var(--sun)"/>
-        <rect y="45" width="180" height="25" style="fill:var(--arterial)" opacity=".35"/>
-        <text x="90" y="130" font-weight="600">2. Plak lemak</text><text x="90" y="148" font-size="11" style="fill:var(--muted)">menyempit → angina stabil</text>
-      </g>
-      <g transform="translate(440,20)">
-        <rect width="180" height="100" style="fill:var(--arterial-soft);stroke:var(--arterial)" stroke-width="3"/>
-        <path d="M40 60 Q90 20 140 60 Z" style="fill:var(--sun)"/>
-        <path d="M60 50 Q90 30 120 52 L118 70 L62 70 Z" style="fill:var(--sakura-deep)"/>
-        <text x="90" y="130" font-weight="600">3. Plak pecah + trombus</text><text x="90" y="148" font-size="11" style="fill:var(--muted)">tersumbat → SKA / infark</text>
-      </g>
-    </g>
-  </svg>
-  <figcaption>Kuning = plak (kolesterol + sel radang), merah tua = bekuan darah.</figcaption>
-  </figure>
+  <figure class="m1-fig"><img src="img/dinding.jpg" alt="Struktur dinding arteri dan vena" loading="lazy"><figcaption>Lapisan dinding arteri dan vena. Plak aterosklerosis tumbuh di tunica intima arteri, lalu menonjol ke lumen. Sumber: bahan kuliah Blok 2 Kardiorespirasi FKIK ULM (Histologi).</figcaption></figure>
   <div class="m1-body">
     <p><b>Faktor risiko.</b> Tidak bisa diubah: usia, laki-laki, riwayat keluarga. Bisa diubah: merokok, hipertensi, diabetes, kolesterol LDL tinggi, obesitas, kurang gerak.</p>
     <p><b>Angina stabil.</b> Plak menyempitkan arteri tapi darah masih cukup saat istirahat. Saat naik tangga, kebutuhan O₂ naik → nyeri dada. Istirahat atau nitrat → nyeri hilang dalam beberapa menit.</p>
@@ -758,26 +716,12 @@ body.exam-on #petals{display:none}
     <p><b>Troponin</b> = protein di dalam sel otot jantung. Keluar ke darah hanya bila sel rusak, jadi penanda paling spesifik. Naik 3–4 jam setelah serangan.</p>
     <p><b>Membaca lokasi dari EKG</b> — sadapan "melihat" dinding tertentu, dan tiap dinding diperdarahi arteri tertentu:</p>
   </div>
-  <figure class="m1-fig">
-  <svg viewBox="0 0 640 260" role="img" aria-label="Arteri koroner dan sadapan EKG">
-    <path d="M320 40 C200 40 150 120 190 190 C230 250 300 250 320 230 C340 250 440 240 460 170 C490 100 430 40 320 40Z" style="fill:var(--arterial-soft);stroke:var(--arterial)" stroke-width="2"/>
-    <g fill="none" stroke-width="5" stroke-linecap="round">
-      <path d="M300 50 C250 70 210 110 200 170 C205 210 250 240 300 232" style="stroke:var(--venous)"/>
-      <path d="M340 50 L345 80 C330 120 325 170 318 228" style="stroke:var(--sakura-deep)"/>
-      <path d="M345 80 C390 80 430 110 450 160" style="stroke:var(--leaf)"/>
-    </g>
-    <g font-size="12" style="fill:var(--ink)">
-      <text x="10" y="120" style="fill:var(--venous)" font-weight="700">RCA</text>
-      <text x="10" y="138">→ dinding inferior</text><text x="10" y="156">sadapan II, III, aVF</text>
-      <text x="10" y="176" font-size="10" style="fill:var(--muted)">juga nodus SA/AV</text><text x="10" y="190" font-size="10" style="fill:var(--muted)">→ bisa bradikardia</text>
-      <text x="250" y="130" style="fill:var(--sakura-deep)" font-weight="700">LAD</text>
-      <text x="250" y="148" font-size="11">anterior</text><text x="250" y="162" font-size="11">V1–V4</text>
-      <text x="480" y="190" style="fill:var(--leaf)" font-weight="700">LCx</text>
-      <text x="470" y="208">→ lateral</text><text x="470" y="226">I, aVL, V5–V6</text>
-    </g>
-  </svg>
-  <figcaption>Skema tampak depan. LAD sering dijuluki "widow maker" karena memperdarahi bagian terbesar bilik kiri.</figcaption>
-  </figure>
+  <div class="m1-t"><table>
+    <tr><th>Arteri tersumbat</th><th>Dinding yang infark</th><th>Sadapan EKG dengan ST elevasi</th></tr>
+    <tr><td>LAD (r. interventricularis anterior)</td><td>Anterior &amp; septum</td><td>V1–V4</td></tr>
+    <tr><td>LCx (r. circumflexus)</td><td>Lateral</td><td>I, aVL, V5–V6</td></tr>
+    <tr><td>RCA (a. coronaria dextra)</td><td>Inferior (sering + nodus SA/AV → bradikardia)</td><td>II, III, aVF</td></tr>
+  </table></div>
   <div class="m1-body">
     <p><b>Tata laksana awal.</b> Aspirin dikunyah (menghambat trombosit), nitrat di bawah lidah (melebarkan pembuluh; <i>jangan</i> bila tekanan darah rendah), oksigen hanya bila SpO₂ &lt;90%, pereda nyeri. STEMI butuh <b>reperfusi</b> secepatnya: kateterisasi + pasang balon/stent (PCI), atau obat penghancur bekuan (fibrinolitik) bila PCI tidak tersedia. Prinsip: <i>time is muscle</i>.</p>
     <p><b>Komplikasi infark:</b> aritmia (penyebab kematian tersering di jam-jam awal), gagal jantung/syok kardiogenik, pecahnya m. papillaris → regurgitasi mitral akut, pecahnya dinding → tamponade.</p>
@@ -786,32 +730,12 @@ body.exam-on #petals{display:none}
   <!-- ===== GAGAL JANTUNG ===== -->
   <h2 class="sec" id="m1-gj">Gagal jantung</h2>
   <p class="sub">Jantung tidak mampu memompa cukup darah. Darah yang tidak terpompa "menumpuk ke belakang" — dan letak penumpukannya menentukan gejala.</p>
-  <figure class="m1-fig">
-  <svg viewBox="0 0 640 250" role="img" aria-label="Arah bendungan pada gagal jantung kiri dan kanan">
-    <defs><marker id="ah3" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto"><path d="M0 0L10 5L0 10z" fill="var(--arterial)"/></marker></defs>
-    <g font-size="12" text-anchor="middle" style="fill:var(--ink)">
-      <rect x="20" y="90" width="150" height="70" style="fill:var(--venous-soft);stroke:var(--venous)"/><text x="95" y="120" font-weight="600">Tubuh</text><text x="95" y="138" font-size="11">vena sistemik</text>
-      <rect x="200" y="90" width="100" height="70" style="fill:var(--venous-soft);stroke:var(--venous)"/><text x="250" y="130" font-weight="600">Jantung kanan</text>
-      <rect x="330" y="90" width="100" height="70" style="fill:var(--surface-2);stroke:var(--rule)"/><text x="380" y="130" font-weight="600">Paru</text>
-      <rect x="460" y="90" width="110" height="70" style="fill:var(--arterial-soft);stroke:var(--arterial)"/><text x="515" y="130" font-weight="600">Jantung kiri</text>
-    </g>
-    <g style="stroke:var(--arterial)" stroke-width="3" marker-end="url(#ah3)" fill="none">
-      <path d="M470 80 Q430 40 400 80"/><path d="M230 80 Q160 30 110 80"/>
-    </g>
-    <g font-size="12" style="fill:var(--arterial)" text-anchor="middle">
-      <text x="440" y="30" font-weight="700">Gagal KIRI → darah balik ke paru</text>
-      <text x="170" y="30" font-weight="700">Gagal KANAN → darah balik ke tubuh</text>
-    </g>
-    <g font-size="11" style="fill:var(--ink)">
-      <text x="330" y="190">• sesak saat aktivitas, ortopnea (sesak saat berbaring)</text>
-      <text x="330" y="206">• PND (terbangun malam karena sesak)</text>
-      <text x="330" y="222">• ronki basah, batuk berbusa merah muda (edema paru)</text>
-      <text x="20" y="190">• JVP naik (vena leher menonjol)</text>
-      <text x="20" y="206">• edema tungkai (pitting)</text>
-      <text x="20" y="222">• hati membesar, asites</text>
-    </g>
-  </svg>
-  </figure>
+  <div class="m1-t"><table>
+    <tr><th></th><th>Gagal jantung kiri</th><th>Gagal jantung kanan</th></tr>
+    <tr><td>Darah terbendung di</td><td>Paru</td><td>Vena sistemik (tubuh)</td></tr>
+    <tr><td>Gejala</td><td>Sesak saat aktivitas, ortopnea, PND</td><td>Edema tungkai, perut membesar (asites)</td></tr>
+    <tr><td>Tanda</td><td>Ronki basah, edema paru</td><td>JVP naik, hepatomegali</td></tr>
+  </table></div>
   <div class="m1-body">
     <p><b>Penyebab.</b> Infark (otot mati), hipertensi lama, penyakit katup, kardiomiopati. Penyebab tersering gagal jantung kanan adalah gagal jantung kiri (tekanan paru naik → bilik kanan kelelahan). Gagal kanan akibat penyakit paru disebut <i>cor pulmonale</i>.</p>
     <p><b>Mengapa ortopnea?</b> Saat berbaring, darah dari tungkai kembali ke jantung lebih banyak. Jantung kiri yang lemah tidak sanggup meneruskannya, sehingga paru makin terbendung. Pasien tidur dengan beberapa bantal.</p>
@@ -825,41 +749,8 @@ body.exam-on #petals{display:none}
   <div class="m1-body">
     <p><b>Kunci logika:</b> S1 = katup mitral &amp; trikuspid menutup (awal sistol). S2 = katup aorta &amp; pulmonal menutup (awal diastol). Pada <b>sistol</b>, katup aorta seharusnya terbuka dan mitral tertutup. Jadi bising sistolik = aorta sempit <i>atau</i> mitral bocor. Pada <b>diastol</b> sebaliknya: bising diastolik = mitral sempit <i>atau</i> aorta bocor.</p>
   </div>
-  <figure class="m1-fig">
-  <svg viewBox="0 0 640 300" role="img" aria-label="Bentuk bising pada empat kelainan katup">
-    <g font-size="12" style="fill:var(--ink)">
-      <text x="10" y="18" font-weight="700">S1 ───── sistol ───── S2 ───── diastol ───── S1</text>
-    </g>
-    <g id="rows">
-      <g transform="translate(0,40)">
-        <text x="10" y="30" font-size="12" style="fill:var(--ink)" font-weight="600">Stenosis aorta</text>
-        <rect x="200" y="5" width="6" height="40" style="fill:var(--ink)"/><rect x="400" y="5" width="6" height="40" style="fill:var(--ink)"/><rect x="600" y="5" width="6" height="40" style="fill:var(--ink)"/>
-        <path d="M215 45 L300 8 L390 45 Z" style="fill:var(--arterial)" opacity=".7"/>
-        <text x="420" y="30" font-size="11" style="fill:var(--muted)">berlian (crescendo-decrescendo)</text>
-      </g>
-      <g transform="translate(0,100)">
-        <text x="10" y="30" font-size="12" style="fill:var(--ink)" font-weight="600">Regurgitasi mitral</text>
-        <rect x="200" y="5" width="6" height="40" style="fill:var(--ink)"/><rect x="400" y="5" width="6" height="40" style="fill:var(--ink)"/><rect x="600" y="5" width="6" height="40" style="fill:var(--ink)"/>
-        <rect x="208" y="15" width="190" height="30" style="fill:var(--arterial)" opacity=".7"/>
-        <text x="420" y="30" font-size="11" style="fill:var(--muted)">rata, sepanjang sistol</text>
-      </g>
-      <g transform="translate(0,160)">
-        <text x="10" y="30" font-size="12" style="fill:var(--ink)" font-weight="600">Regurgitasi aorta</text>
-        <rect x="200" y="5" width="6" height="40" style="fill:var(--ink)"/><rect x="400" y="5" width="6" height="40" style="fill:var(--ink)"/><rect x="600" y="5" width="6" height="40" style="fill:var(--ink)"/>
-        <path d="M408 8 L408 45 L520 45 Z" style="fill:var(--venous)" opacity=".8"/>
-        <text x="210" y="30" font-size="11" style="fill:var(--muted)">mengecil (decrescendo)</text>
-      </g>
-      <g transform="translate(0,220)">
-        <text x="10" y="30" font-size="12" style="fill:var(--ink)" font-weight="600">Stenosis mitral</text>
-        <rect x="200" y="5" width="6" height="40" style="fill:var(--ink)"/><rect x="400" y="5" width="6" height="40" style="fill:var(--ink)"/><rect x="600" y="5" width="6" height="40" style="fill:var(--ink)"/>
-        <rect x="420" y="3" width="3" height="42" style="fill:var(--sun)"/>
-        <path d="M430 45 L430 30 Q480 20 530 35 L560 25 L596 12 L596 45 Z" style="fill:var(--venous)" opacity=".8"/>
-        <text x="210" y="30" font-size="11" style="fill:var(--muted)">opening snap + rumble, keras di akhir</text>
-      </g>
-    </g>
-  </svg>
-  <figcaption>Merah = bising sistolik, biru = bising diastolik, kuning = opening snap.</figcaption>
-  </figure>
+  <figure class="m1-fig"><img src="img/wiggers.jpg" alt="Diagram Wiggers siklus jantung" loading="lazy"><figcaption>Diagram Wiggers: tekanan, volume, EKG, dan fonokardiogram dalam satu siklus. Perhatikan bunyi 1 (awal sistol) dan bunyi 2 (awal diastol). Sumber: bahan kuliah Blok 2 Kardiorespirasi FKIK ULM (Fisiologi).</figcaption></figure>
+  <figure class="m1-fig"><img src="img/katup.jpg" alt="Katup jantung saat sistol dan diastol" loading="lazy"><figcaption>Katup saat sistol (atas) dan diastol (bawah). Bila katup sempit atau bocor pada fase ini, muncul bising. Sumber: bahan kuliah Blok 2 Kardiorespirasi FKIK ULM (Histologi).</figcaption></figure>
   <div class="m1-t"><table>
     <tr><th>Kelainan</th><th>Bising</th><th>Tempat terdengar</th><th>Ciri lain</th></tr>
     <tr><td>Stenosis aorta</td><td>Sistolik ejeksi</td><td>ICS 2 parasternal kanan, menjalar ke leher</td><td>Trias: angina, pingsan saat aktivitas, sesak</td></tr>
@@ -867,55 +758,21 @@ body.exam-on #petals{display:none}
     <tr><td>Regurgitasi aorta</td><td>Diastolik awal</td><td>ICS 3 parasternal kiri (titik Erb)</td><td>Nadi keras-cepat hilang (water-hammer), tekanan nadi lebar</td></tr>
     <tr><td>Stenosis mitral</td><td>Diastolik rumble</td><td>Apeks, pasien miring kiri</td><td>Tersering akibat demam rematik; atrium kiri membesar → AF</td></tr>
   </table></div>
-  <figure class="m1-fig">
-  <svg viewBox="0 0 640 260" role="img" aria-label="Titik auskultasi jantung">
-    <path d="M200 20 L440 20 L470 240 L170 240 Z" style="fill:var(--surface-2);stroke:var(--rule)" stroke-width="2"/>
-    <rect x="305" y="20" width="30" height="200" style="fill:var(--surface-3)"/>
-    <g style="stroke:var(--rule)" stroke-width="1.5" fill="none">
-      <path d="M305 60 Q250 70 200 60"/><path d="M335 60 Q390 70 440 60"/>
-      <path d="M305 100 Q250 110 195 100"/><path d="M335 100 Q390 110 445 100"/>
-      <path d="M305 140 Q250 150 190 140"/><path d="M335 140 Q390 150 450 140"/>
-      <path d="M305 180 Q250 190 185 180"/><path d="M335 180 Q390 190 455 180"/>
-    </g>
-    <g font-size="10" style="fill:var(--muted)"><text x="455" y="84">ICS 2</text><text x="460" y="124">ICS 3</text><text x="465" y="164">ICS 4</text><text x="470" y="204">ICS 5</text></g>
-    <g font-size="12" font-weight="700" text-anchor="middle">
-      <circle cx="290" cy="80" r="13" style="fill:var(--arterial)"/><text x="290" y="84" fill="#fff">A</text>
-      <circle cx="350" cy="80" r="13" style="fill:var(--venous)"/><text x="350" y="84" fill="#fff">P</text>
-      <circle cx="350" cy="120" r="13" style="fill:var(--sun)"/><text x="350" y="124" fill="#fff">E</text>
-      <circle cx="345" cy="165" r="13" style="fill:var(--leaf)"/><text x="345" y="169" fill="#fff">T</text>
-      <circle cx="410" cy="200" r="13" style="fill:var(--sakura-deep)"/><text x="410" y="204" fill="#fff">M</text>
-    </g>
-    <g font-size="11" style="fill:var(--ink)">
-      <text x="10" y="84">A = Aorta: ICS 2 kanan</text>
-      <text x="10" y="104">P = Pulmonal: ICS 2 kiri</text>
-      <text x="10" y="124">E = Erb: ICS 3 kiri</text>
-      <text x="10" y="144">T = Trikuspid: ICS 4–5 kiri bawah</text>
-      <text x="10" y="164">M = Mitral: ICS 5 midklavikula kiri</text>
-      <text x="10" y="184" style="fill:var(--muted)">("All Patients Enjoy Taking Medicine")</text>
-    </g>
-  </svg>
-  <figcaption>Sisi kanan pasien ada di kiri gambar. Ini juga dipakai langsung di OSCE final.</figcaption>
-  </figure>
+  <figure class="m1-fig"><img src="img/garis.jpg" alt="Garis imajiner dada" loading="lazy"><figcaption>Garis imajiner dinding dada: 1 mediana anterior, 2 sternalis, 3 parasternalis, 4 midclavicularis. Pakai untuk menemukan titik dengar. Sumber: bahan kuliah Blok 2 Kardiorespirasi FKIK ULM (Anatomi).</figcaption></figure>
+  <div class="m1-t"><table>
+    <tr><th>Titik dengar</th><th>Letak</th></tr>
+    <tr><td>Aorta</td><td>ICS 2, linea parasternalis kanan</td></tr>
+    <tr><td>Pulmonal</td><td>ICS 2, linea parasternalis kiri</td></tr>
+    <tr><td>Erb</td><td>ICS 3, linea parasternalis kiri</td></tr>
+    <tr><td>Trikuspid</td><td>ICS 4–5, linea parasternalis kiri</td></tr>
+    <tr><td>Mitral</td><td>ICS 5, linea midclavicularis kiri (apeks)</td></tr>
+  </table></div>
 
   <!-- ===== EKG ===== -->
   <h2 class="sec" id="m1-ekg">EKG dasar</h2>
   <p class="sub">EKG merekam listrik jantung, bukan pompanya. Setiap gelombang = satu kejadian listrik.</p>
-  <figure class="m1-fig">
-  <svg viewBox="0 0 640 230" role="img" aria-label="Gelombang EKG normal dan intervalnya">
-    <defs><pattern id="grid" width="10" height="10" patternUnits="userSpaceOnUse"><path d="M10 0H0V10" fill="none" style="stroke:var(--sakura-pale)" stroke-width=".6"/></pattern>
-    <pattern id="grid5" width="50" height="50" patternUnits="userSpaceOnUse"><rect width="50" height="50" fill="url(#grid)"/><path d="M50 0H0V50" fill="none" style="stroke:var(--sakura)" stroke-width="1"/></pattern></defs>
-    <rect x="0" y="0" width="640" height="170" fill="url(#grid5)"/>
-    <path d="M0 120 H80 Q95 100 110 120 H150 L158 130 L175 20 L190 145 L198 120 H250 Q280 80 310 120 H400 Q415 100 430 120 H470 L478 130 L495 20 L510 145 L518 120 H570 Q600 80 630 120 H640" fill="none" style="stroke:var(--ink)" stroke-width="2.5"/>
-    <g font-size="13" font-weight="700" style="fill:var(--arterial)">
-      <text x="88" y="96">P</text><text x="160" y="16">QRS</text><text x="275" y="76">T</text>
-    </g>
-    <g style="stroke:var(--venous)" stroke-width="2"><path d="M80 185H158"/><path d="M158 200H198"/><path d="M175 215H495"/></g>
-    <g font-size="11" style="fill:var(--ink)">
-      <text x="84" y="182">PR 0,12–0,20 s</text><text x="202" y="204">QRS &lt;0,12 s</text><text x="300" y="228">R–R → dipakai untuk menghitung frekuensi</text>
-    </g>
-  </svg>
-  <figcaption>1 kotak kecil = 0,04 s; 1 kotak besar (5 kecil) = 0,20 s.</figcaption>
-  </figure>
+  <figure class="m1-fig"><img src="img/ekg.jpg" alt="Gelombang EKG normal" loading="lazy"><figcaption>Satu siklus EKG: gelombang P, kompleks QRS, gelombang T dan U, interval dan segmen PR. Sumber: bahan kuliah Blok 2 Kardiorespirasi FKIK ULM (Fisiologi).</figcaption></figure>
+  <figure class="m1-fig"><img src="img/konduksi.jpg" alt="Sistem konduksi jantung" loading="lazy"><figcaption>Sistem konduksi: nodus SA → nodus AV → berkas His → cabang berkas → serabut Purkinje. Sumber: bahan kuliah Blok 2 Kardiorespirasi FKIK ULM (Fisiologi).</figcaption></figure>
   <div class="m1-t"><table>
     <tr><th>Bagian</th><th>Kejadian</th><th>Kalau berubah</th></tr>
     <tr><td>Gelombang P</td><td>Depolarisasi atrium (dari nodus SA)</td><td>Hilang → fibrilasi atrium</td></tr>
@@ -932,25 +789,13 @@ body.exam-on #petals{display:none}
 
   <!-- ===== ARITMIA ===== -->
   <h2 class="sec" id="m1-aritmia">Aritmia dasar</h2>
-  <figure class="m1-fig">
-  <svg viewBox="0 0 640 330" role="img" aria-label="Contoh strip irama">
-    <g font-size="12" font-weight="600" style="fill:var(--ink)">
-      <text x="0" y="20">Irama sinus normal</text><text x="0" y="100">Fibrilasi atrium</text><text x="0" y="180">Takikardia ventrikel</text><text x="0" y="260">Fibrilasi ventrikel</text>
-    </g>
-    <g fill="none" style="stroke:var(--ink)" stroke-width="2">
-      <path d="M0 60 H20 Q27 52 34 60 H44 L48 64 L54 30 L60 68 L64 60 H84 Q98 46 112 60 H140 Q147 52 154 60 H164 L168 64 L174 30 L180 68 L184 60 H204 Q218 46 232 60 H260 Q267 52 274 60 H284 L288 64 L294 30 L300 68 L304 60 H324 Q338 46 352 60 H380 Q387 52 394 60 H404 L408 64 L414 30 L420 68 L424 60 H444 Q458 46 472 60 H500 Q507 52 514 60 H524 L528 64 L534 30 L540 68 L544 60 H564 Q578 46 592 60 H640"/>
-      <path d="M0 140 l6 -3 l5 4 l4 -2 l6 3 L28 142 L34 110 L40 148 L44 140 l5 -3 l6 3 l4 -2 l6 3 l4 -3 L76 140 L82 110 L88 148 L92 140 l6 3 l4 -3 l6 2 l5 -3 l6 3 l5 -2 l4 3 l6 -3 l5 2 l6 -3 L150 140 L156 110 L162 148 L166 140 l5 -3 l4 3 L182 140 L188 110 L194 148 L198 140 l6 3 l4 -3 l6 2 l5 -3 l6 3 l5 -2 l4 3 l6 -3 l5 2 l6 -3 l5 3 l4 -3 L264 140 L270 110 L276 148 L280 140 l5 -3 l6 3 l4 -2 l6 3 l4 -3 L312 140 L318 110 L324 148 L328 140 l6 3 l4 -3 l6 2 l5 -3 l6 3 l5 -2 l4 3 l6 -3 l5 2 l6 -3 l5 3 l4 -3 l6 2 l5 -3 l6 3 L420 140 L426 110 L432 148 L436 140 l5 -3 l6 3 l4 -2 L464 140 L470 110 L476 148 L480 140 l6 3 l4 -3 l6 2 l5 -3 l6 3 l5 -2 l4 3 l6 -3 l5 2 l6 -3 l5 3 l4 -3 L560 140 L566 110 L572 148 L576 140 l6 3 l4 -3 l6 2 l5 -3 l6 3 L640 140"/>
-      <path d="M0 220 q10 -40 20 0 t20 0 q10 -40 20 0 t20 0 q10 -40 20 0 t20 0 q10 -40 20 0 t20 0 q10 -40 20 0 t20 0 q10 -40 20 0 t20 0 q10 -40 20 0 t20 0 q10 -40 20 0 t20 0 q10 -40 20 0 t20 0 q10 -40 20 0 t20 0 q10 -40 20 0 t20 0 q10 -40 20 0 t20 0 q10 -40 20 0 t20 0 q10 -40 20 0 t20 0 q10 -40 20 0 t20 0 q10 -40 20 0 t20 0"/>
-      <path id="vf" d="M0 300 q8 -14 14 2 q6 18 12 -6 q9 -22 14 4 q4 16 10 -2 q8 -26 16 6 q5 12 10 -8 q7 -10 12 4 q9 20 16 -10 q6 -14 10 6 q6 16 14 -4 q7 -18 12 2 q8 22 16 -8 q5 -10 10 4 q6 14 12 -2 q8 -20 14 8 q6 10 12 -6 q9 -16 14 4 q6 18 12 -8 q7 -12 14 6 q6 10 10 -2 q8 -18 16 8 q6 14 12 -8 q7 -14 12 4 q7 14 14 -4 q8 -20 14 6 q6 12 12 -6 q7 -10 12 4 q8 16 14 -6 q6 -12 12 4 q7 10 12 -4 q6 -14 12 4 q7 12 14 -6 q6 -8 12 4 q6 10 12 -2 q7 -12 12 4 q6 8 12 -2"/><use href="#vf" x="410"/>
-    </g>
-    <g font-size="11" style="fill:var(--muted)">
-      <text x="200" y="20">P di depan setiap QRS, jarak R–R sama</text>
-      <text x="200" y="100">tidak ada P, garis bergerigi, R–R tidak teratur</text>
-      <text x="200" y="180">QRS lebar, cepat, teratur</text>
-      <text x="200" y="260">kacau total, tidak ada QRS → tidak ada nadi</text>
-    </g>
-  </svg>
-  </figure>
+  <div class="m1-t"><table>
+    <tr><th>Irama</th><th>Ciri di EKG</th><th>Nadi</th></tr>
+    <tr><td>Sinus normal</td><td>P di depan setiap QRS, R–R sama</td><td>Teratur</td></tr>
+    <tr><td>Fibrilasi atrium</td><td>Tidak ada P, garis dasar bergerigi, R–R tidak teratur</td><td>Tidak teratur</td></tr>
+    <tr><td>Takikardia ventrikel</td><td>QRS lebar, cepat, teratur</td><td>Bisa ada / tidak ada</td></tr>
+    <tr><td>Fibrilasi ventrikel</td><td>Kacau total, tanpa QRS jelas</td><td>Tidak ada</td></tr>
+  </table></div>
   <div class="m1-body">
     <p><b>Fibrilasi atrium (AF).</b> Atrium bergetar kacau ratusan kali per menit, tidak berkontraksi efektif. Darah menggenang di auricula sinistra → bekuan → lepas ke otak = <b>stroke</b>. Nadi "tidak teratur secara tidak teratur". Sering pada stenosis mitral, hipertensi, hipertiroid, usia lanjut. Terapi: kendalikan frekuensi + antikoagulan.</p>
     <p><b>Takikardia ventrikel (VT).</b> Pemicu listrik dari ventrikel sendiri, sering dari jaringan parut bekas infark. Bila masih ada nadi dan stabil → obat/kardioversi. Tanpa nadi → perlakukan seperti VF.</p>
@@ -962,17 +807,13 @@ body.exam-on #petals{display:none}
   <!-- ===== SYOK ===== -->
   <h2 class="sec" id="m1-syok">Syok</h2>
   <p class="sub">Syok = jaringan kekurangan O₂ karena peredaran gagal. Tanda umum: tekanan darah turun, nadi cepat-lemah, gelisah, urin sedikit, laktat naik.</p>
-  <figure class="m1-fig">
-  <svg viewBox="0 0 640 210" role="img" aria-label="Empat jenis syok berdasarkan komponen sirkulasi">
-    <g font-size="12" text-anchor="middle" style="fill:var(--ink)">
-      <g transform="translate(10,20)"><rect width="145" height="150" style="fill:var(--venous-soft);stroke:var(--venous)"/><text x="72" y="28" font-weight="700">Hipovolemik</text><text x="72" y="50" font-size="11">Masalah: isi kurang</text><text x="72" y="80" font-size="11">perdarahan, diare,</text><text x="72" y="96" font-size="11">luka bakar</text><text x="72" y="130" font-size="11" font-weight="600">JVP ↓, akral dingin</text></g>
-      <g transform="translate(168,20)"><rect width="145" height="150" style="fill:var(--arterial-soft);stroke:var(--arterial)"/><text x="72" y="28" font-weight="700">Kardiogenik</text><text x="72" y="50" font-size="11">Masalah: pompa lemah</text><text x="72" y="80" font-size="11">infark luas,</text><text x="72" y="96" font-size="11">aritmia berat</text><text x="72" y="130" font-size="11" font-weight="600">JVP ↑, ronki, dingin</text></g>
-      <g transform="translate(326,20)"><rect width="145" height="150" style="fill:var(--sun-soft);stroke:var(--sun)"/><text x="72" y="28" font-weight="700">Obstruktif</text><text x="72" y="50" font-size="11">Masalah: aliran terhalang</text><text x="72" y="80" font-size="11">tamponade, emboli paru,</text><text x="72" y="96" font-size="11">tension pneumothorax</text><text x="72" y="130" font-size="11" font-weight="600">JVP ↑, paru bersih</text></g>
-      <g transform="translate(484,20)"><rect width="145" height="150" style="fill:var(--leaf-soft);stroke:var(--leaf)"/><text x="72" y="28" font-weight="700">Distributif</text><text x="72" y="50" font-size="11">Masalah: pipa melebar</text><text x="72" y="80" font-size="11">sepsis, anafilaksis,</text><text x="72" y="96" font-size="11">cedera tulang belakang</text><text x="72" y="130" font-size="11" font-weight="600">akral hangat (awal)</text></g>
-    </g>
-    <text x="320" y="200" font-size="11" text-anchor="middle" style="fill:var(--muted)">Bayangkan sirkulasi sebagai pompa + pipa + isi. Tiap jenis syok merusak satu bagian.</text>
-  </svg>
-  </figure>
+  <div class="m1-t"><table>
+    <tr><th>Jenis syok</th><th>Masalah</th><th>Contoh</th><th>Ciri pembeda</th></tr>
+    <tr><td>Hipovolemik</td><td>Isi pembuluh kurang</td><td>Perdarahan, diare, luka bakar</td><td>JVP turun, akral dingin</td></tr>
+    <tr><td>Kardiogenik</td><td>Pompa lemah</td><td>Infark luas, aritmia berat</td><td>JVP naik, ronki, akral dingin</td></tr>
+    <tr><td>Obstruktif</td><td>Aliran terhalang</td><td>Tamponade, emboli paru, tension pneumothorax</td><td>JVP naik, paru bersih</td></tr>
+    <tr><td>Distributif</td><td>Pembuluh melebar</td><td>Sepsis, anafilaksis, cedera tulang belakang</td><td>Akral hangat (awal)</td></tr>
+  </table></div>
   <div class="m1-body">
     <p><b>Tamponade jantung.</b> Cairan/darah mengisi kantong pericardium, menekan jantung sehingga tidak bisa terisi. <b>Trias Beck:</b> hipotensi, JVP naik, bunyi jantung terdengar jauh. Tanda lain: pulsus paradoksus (tekanan sistolik turun &gt;10 mmHg saat tarik napas). Terapi: pericardiocentesis (sedot cairannya).</p>
     <p><b>Tension pneumothorax.</b> Udara terjebak di rongga pleura, mendorong mediastinum ke sisi lain, vena cava tertekuk → darah tidak kembali ke jantung. Trakea bergeser menjauh, suara napas hilang di sisi sakit. Terapi: dekompresi jarum segera.</p>
@@ -1158,6 +999,111 @@ function go(name){
 }
 document.querySelectorAll(".tabs button").forEach(b => b.onclick = () => go(b.dataset.go));
 document.querySelectorAll("[data-jump]").forEach(b => b.onclick = () => go(b.dataset.jump));
+
+/* ---------- flashcard minggu 1 ---------- */
+const FC_INFO={"Aurikula": {"d": "Kantong kecil berbentuk telinga yang menonjol dari atrium.", "l": "Menempel di sisi depan atas atrium; kanan menutupi pangkal aorta, kiri di samping trunkus pulmonalis."}, "Katup trikuspid": {"d": "Katup atrioventrikular kanan dengan tiga daun katup.", "l": "Di antara atrium kanan dan ventrikel kanan, di belakang sternum setinggi ICS 4–5."}, "Katup mitral": {"d": "Katup atrioventrikular kiri dengan dua daun katup (bikuspid).", "l": "Di antara atrium kiri dan ventrikel kiri, di belakang sternum kiri setinggi rawan kosta 4."}, "Katup pulmonal / aorta": {"d": "Katup semilunar dengan tiga daun berbentuk kantong.", "l": "Pulmonal: pangkal trunkus pulmonalis, setinggi rawan kosta 3 kiri. Aorta: pangkal aorta, sedikit di belakang dan kanan katup pulmonal."}, "Daun katup AV": {"d": "Lembaran jaringan ikat berlapis endokardium yang membentuk katup AV.", "l": "Menggantung dari cincin fibrosa di lubang atrioventrikular ke arah ventrikel."}, "Daun katup semilunar": {"d": "Kantong tipis berbentuk bulan sabit, tiga buah per katup.", "l": "Melekat di dinding pangkal aorta dan trunkus pulmonalis."}, "Korda tendinea": {"d": "Tali tipis jaringan ikat fibrosa.", "l": "Di dalam ventrikel, membentang dari ujung otot papilaris ke tepi daun katup AV."}, "Otot papilaris": {"d": "Tonjolan otot berbentuk kerucut di dinding ventrikel.", "l": "Dinding dalam ventrikel; kanan tiga (anterior, posterior, septal), kiri dua (anterior, posterior)."}, "Trabekula": {"d": "Rigi dan jembatan otot tidak beraturan di permukaan dalam ventrikel.", "l": "Dinding dalam kedua ventrikel, terutama bagian bawah (jalur masuk)."}, "Pita moderator": {"d": "Trabekula khusus berbentuk pita, disebut juga trabecula septomarginalis.", "l": "Ventrikel kanan, dari septum interventrikular ke pangkal otot papilaris anterior."}, "Otot pektinatus": {"d": "Rigi otot sejajar seperti gigi sisir.", "l": "Dinding depan atrium kanan dan dalam kedua aurikula; bagian lain atrium berdinding licin."}, "Fosa ovalis": {"d": "Cekungan dangkal berbentuk oval.", "l": "Septum interatrial, dilihat dari sisi atrium kanan."}, "Puncak / dasar jantung": {"d": "Apeks: ujung jantung yang runcing. Basis: permukaan belakang jantung.", "l": "Apeks: ICS 5 kiri, linea midclavicularis, dibentuk ventrikel kiri. Basis: menghadap belakang ke vertebra T6–T9, dibentuk terutama atrium kiri."}, "Alur koroner": {"d": "Lekukan melingkar di permukaan jantung yang disebut juga sulcus atrioventricularis.", "l": "Di permukaan luar jantung, melingkari batas antara atrium dan ventrikel."}, "Nodus SA / AV": {"d": "Kumpulan sel otot jantung khusus yang bisa membuat dan menghantarkan impuls listrik.", "l": "SA: dinding atrium kanan dekat muara v. cava superior. AV: septum interatrial bagian bawah, dekat muara sinus coronarius."}, "Berkas His": {"d": "Berkas serat penghantar yang melanjutkan nodus AV.", "l": "Menembus cincin fibrosa, berjalan di tepi septum membranaceum, lalu bercabang kanan dan kiri di septum interventrikular."}, "Serabut Purkinje": {"d": "Sel otot jantung khusus berukuran besar dan kaya glikogen, sedikit miofibril.", "l": "Di bawah endokardium kedua ventrikel (subendokardial)."}, "Perikardium": {"d": "Kantong berlapis dua yang membungkus jantung dan pangkal pembuluh besar.", "l": "Mediastinum medius; melekat ke diafragma (tendo sentral) dan ke sternum lewat ligamen."}, "Otot / lapisan dalam jantung": {"d": "Miokardium: lapisan tengah dinding jantung dari otot jantung. Endokardium: lapisan terdalam dari endotel dan jaringan ikat tipis.", "l": "Miokardium paling tebal di ventrikel kiri. Endokardium melapisi seluruh ruang jantung dan katup."}, "A. koroner kanan / kiri": {"d": "Dua arteri pertama yang keluar dari aorta.", "l": "Pangkal di sinus aorta kanan dan kiri (tepat di atas katup aorta), lalu berjalan di sulcus coronarius."}, "LAD": {"d": "Cabang depan a. coronaria sinistra.", "l": "Sulcus interventricularis anterior, dari basis turun hingga apeks."}, "LCx": {"d": "Cabang a. coronaria sinistra yang melingkar ke kiri.", "l": "Sulcus coronarius kiri, memutar ke permukaan belakang jantung."}, "PDA": {"d": "Cabang arteri koroner yang turun di permukaan bawah jantung.", "l": "Sulcus interventricularis posterior."}, "Cabang marginal": {"d": "Cabang arteri koroner yang menyusuri tepi jantung.", "l": "Kanan: tepi bawah (margo dexter) dari RCA. Kiri: tepi kiri (margo obtusus) dari LCx."}, "Sinus koronarius": {"d": "Vena besar penampung darah vena jantung.", "l": "Bagian belakang sulcus coronarius; bermuara di atrium kanan antara v. cava inferior dan katup trikuspid."}, "V. jantung besar / tengah / kecil": {"d": "Vena-vena utama otot jantung.", "l": "Magna: sulcus interventricularis anterior lalu sulcus coronarius kiri. Media: sulcus interventricularis posterior. Parva: sulcus coronarius kanan."}, "Aorta dada / perut": {"d": "Lanjutan arcus aortae yang turun di dada dan perut.", "l": "Thoracica: mediastinum posterior di kiri vertebra T4–T12. Abdominalis: dari hiatus aorticus diafragma (T12) sampai percabangan di L4."}, "A. karotis interna / eksterna": {"d": "Dua cabang akhir a. carotis communis.", "l": "Bercabang setinggi tepi atas kartilago tiroid (C3–C4). Interna masuk tengkorak lewat canalis caroticus; eksterna naik di depan telinga."}, "A. vertebralis": {"d": "Cabang pertama a. subclavia.", "l": "Naik lewat foramen transversarium C6–C1, masuk tengkorak lewat foramen magnum."}, "Trunkus pulmonalis": {"d": "Batang arteri besar yang keluar dari ventrikel kanan.", "l": "Mediastinum medius, di depan pangkal aorta; bercabang dua di bawah arcus aortae setinggi T4–T5."}, "A. pulmonalis kanan / kiri": {"d": "Dua cabang trunkus pulmonalis.", "l": "Kanan berjalan di bawah arcus aortae dan di belakang v. cava superior; kiri di depan aorta descendens. Keduanya masuk hilum paru."}, "Vena pulmonalis": {"d": "Vena yang keluar dari paru membawa darah kaya O₂.", "l": "Dari hilum paru, bermuara di dinding belakang atrium kiri."}, "V. kava superior / inferior": {"d": "Dua vena terbesar tubuh.", "l": "Superior: mediastinum superior kanan, masuk atap atrium kanan. Inferior: kanan aorta abdominalis, menembus diafragma di T8, masuk dasar atrium kanan."}, "V. jugularis interna / eksterna": {"d": "Vena utama leher.", "l": "Interna: dari foramen jugulare, di dalam selubung karotis di samping a. carotis. Eksterna: superfisial, menyilang m. sternocleidomastoideus."}, "V. brakiosefalika": {"d": "Vena besar tanpa katup hasil pertemuan v. jugularis interna dan v. subclavia.", "l": "Di belakang sendi sternoklavikular; yang kiri lebih panjang, menyilang di depan cabang arcus aortae."}, "V. azigos": {"d": "Vena tanpa pasangan di dinding belakang dada.", "l": "Kanan kolumna vertebra thoracica; melengkung di atas bronkus utama kanan (T4) lalu masuk v. cava superior."}, "Trunkus seliakus": {"d": "Cabang depan pertama aorta abdominalis.", "l": "Setinggi T12, tepat di bawah hiatus aorticus; bercabang tiga: a. gastrica sinistra, a. hepatica communis, a. splenica."}, "A. mesenterika superior / inferior": {"d": "Cabang depan aorta abdominalis untuk usus.", "l": "Superior: setinggi L1, di belakang leher pankreas. Inferior: setinggi L3."}, "A. renalis": {"d": "Cabang samping aorta abdominalis ke ginjal.", "l": "Setinggi L1–L2; yang kanan lebih panjang dan lewat di belakang v. cava inferior."}, "V. porta": {"d": "Vena besar hasil pertemuan v. mesenterica superior dan v. splenica.", "l": "Terbentuk di belakang leher pankreas (L2), naik di ligamentum hepatoduodenale ke porta hepatis."}, "Sisa duktus arteriosus": {"d": "Pita jaringan ikat sisa duktus arteriosus janin.", "l": "Menghubungkan pangkal a. pulmonalis kiri dengan bawah arcus aortae; n. laryngeus recurrens kiri melingkar di dekatnya."}, "A. iliaka interna": {"d": "Cabang a. iliaca communis untuk panggul.", "l": "Dari percabangan a. iliaca communis di depan sendi sakroiliaka, turun ke rongga panggul."}, "A. glutea superior / inferior": {"d": "Cabang a. iliaca interna untuk bokong.", "l": "Keluar panggul lewat foramen ischiadicum majus: superior di atas m. piriformis, inferior di bawahnya."}, "A. obturatoria": {"d": "Cabang depan a. iliaca interna.", "l": "Dinding samping panggul, keluar lewat canalis obturatorius ke paha bagian dalam."}, "A. pudenda interna": {"d": "Cabang a. iliaca interna untuk perineum.", "l": "Keluar lewat foramen ischiadicum majus, masuk lagi lewat foramen ischiadicum minus, berjalan di canalis pudendalis (Alcock)."}, "A. umbilikalis": {"d": "Cabang depan a. iliaca interna.", "l": "Dinding samping panggul; bagian ujungnya menutup menjadi lig. umbilicale mediale."}, "A. brakialis profunda": {"d": "Cabang terbesar a. brachialis.", "l": "Lengan atas bagian belakang, berjalan bersama n. radialis di sulcus nervi radialis humerus."}, "A. femoralis profunda": {"d": "Cabang terbesar a. femoralis.", "l": "Keluar sekitar 4 cm di bawah lig. inguinale, turun di belakang a. femoralis di paha."}, "A. fibularis": {"d": "Cabang a. tibialis posterior.", "l": "Kompartemen belakang tungkai bawah, dekat fibula."}, "V. sefalika / basilika": {"d": "Vena superfisial utama lengan.", "l": "Cephalica: sisi lateral lengan, masuk sulcus deltopectoralis lalu v. axillaris. Basilica: sisi medial, menembus fascia di pertengahan lengan atas."}, "V. mediana kubiti": {"d": "Vena superfisial penghubung di lipat siku.", "l": "Fossa cubitalis, menyilang miring dari v. cephalica ke v. basilica, di atas aponeurosis bicipitalis."}, "V. aksilaris": {"d": "Vena utama ketiak.", "l": "Fossa axillaris, di sisi medial a. axillaris; dari tepi bawah m. teres major sampai tepi luar kosta 1."}, "V. safena magna / parva": {"d": "Vena superfisial terpanjang dan pasangannya di tungkai.", "l": "Magna: depan malleolus medialis, naik di sisi medial tungkai, masuk v. femoralis di hiatus saphenus. Parva: belakang malleolus lateralis, naik di betis, masuk v. poplitea."}, "V. femoralis / poplitea": {"d": "Vena dalam utama tungkai.", "l": "Poplitea: fossa poplitea, paling superfisial dari a. poplitea. Femoralis: trigonum femorale, di sisi medial a. femoralis."}, "V. iliaka komunis": {"d": "Vena besar panggul hasil pertemuan v. iliaca interna dan externa.", "l": "Depan sendi sakroiliaka; kanan dan kiri bersatu di L5, di kanan dan belakang percabangan aorta."}};
+const FC_FN={
+"Aurikula":"Kantong tambahan serambi yang menambah volume tampung atrium. Pada fibrilasi atrium, bekuan darah sering terbentuk di aurikula kiri.",
+"Katup trikuspid":"Mencegah darah dari bilik kanan balik ke serambi kanan saat sistol.",
+"Katup mitral":"Mencegah darah dari bilik kiri balik ke serambi kiri saat sistol. Hanya punya dua daun katup.",
+"Katup pulmonal / aorta":"Katup semilunar di pintu keluar bilik. Menutup saat diastol agar darah dari trunkus pulmonalis/aorta tidak balik ke bilik (bunyi jantung 2).",
+"Daun katup AV":"Lembaran jaringan ikat yang saling merapat menutup lubang atrioventrikular saat sistol.",
+"Daun katup semilunar":"Tiga kantong berbentuk bulan sabit yang terisi darah dan merapat saat diastol, menutup pintu keluar bilik.",
+"Korda tendinea":"Tali jaringan ikat yang menambatkan daun katup AV ke otot papilaris agar daun katup tidak terdorong ke atrium (prolaps).",
+"Otot papilaris":"Berkontraksi saat sistol untuk menarik korda tendinea sehingga katup AV tetap rapat.",
+"Trabekula":"Tonjolan otot di dinding dalam bilik. Membantu kontraksi dan mengurangi pusaran darah.",
+"Pita moderator":"Pita otot di bilik kanan yang membawa cabang berkas kanan ke otot papilaris anterior, sehingga otot itu berkontraksi tepat waktu.",
+"Otot pektinatus":"Rigi otot di dinding atrium dan aurikula yang memperkuat kontraksi atrium.",
+"Fosa ovalis":"Bekas foramen ovale, lubang janin yang mengalirkan darah dari atrium kanan ke kiri tanpa lewat paru. Menutup setelah lahir.",
+"Puncak / dasar jantung":"Apeks: ujung bawah-kiri, tempat iktus kordis teraba (ICS 5 midklavikula kiri). Basis: sisi belakang-atas, tempat pembuluh besar masuk dan keluar.",
+"Alur koroner":"Lekukan pembatas atrium dan ventrikel di permukaan jantung, jalur a. coronaria dan sinus coronarius.",
+"Nodus SA / AV":"SA: pemacu alami jantung (60–100 x/menit). AV: menunda impuls sekitar 0,1 detik agar atrium selesai memompa sebelum ventrikel berkontraksi.",
+"Berkas His":"Satu-satunya jalur listrik normal dari atrium ke ventrikel. Meneruskan impuls dari nodus AV ke septum.",
+"Serabut Purkinje":"Serat penghantar paling cepat. Menyebarkan impuls ke seluruh otot ventrikel agar kontraksi serentak dari apeks ke atas.",
+"Perikardium":"Kantong pembungkus jantung. Lapisan fibrosa mencegah jantung meregang berlebihan. Cairan di antara lapisan serosa mengurangi gesekan.",
+"Otot / lapisan dalam jantung":"Miokardium: lapisan otot yang memompa darah. Endokardium: lapisan paling dalam yang licin, mencegah darah membeku, dan ikut membentuk katup.",
+"A. koroner kanan / kiri":"Cabang pertama aorta yang memperdarahi otot jantung sendiri. Terisi terutama saat diastol.",
+"LAD":"Memperdarahi dinding depan bilik kiri dan dua pertiga depan septum, wilayah terluas bilik kiri.",
+"LCx":"Memperdarahi dinding samping dan belakang bilik kiri serta atrium kiri.",
+"PDA":"Memperdarahi dinding bawah jantung dan sepertiga belakang septum. Umumnya cabang RCA.",
+"Cabang marginal":"Memperdarahi tepi bilik kanan (dari RCA) dan tepi bilik kiri (dari LCx).",
+"Sinus koronarius":"Menampung darah vena jantung dan mengalirkannya ke atrium kanan.",
+"V. jantung besar / tengah / kecil":"Mengalirkan darah miskin O₂ dari otot jantung ke sinus coronarius. V. magna mengikuti LAD, v. media mengikuti PDA.",
+"Aorta dada / perut":"Bagian thoracica memperdarahi dinding dada, esofagus, dan bronkus. Bagian abdominalis memperdarahi organ perut, ginjal, lalu bercabang ke tungkai.",
+"A. karotis interna / eksterna":"Interna: memperdarahi otak dan mata. Eksterna: memperdarahi wajah, leher, kulit kepala, dan rongga mulut.",
+"A. vertebralis":"Naik lewat foramen tulang leher untuk memperdarahi batang otak, serebelum, dan otak bagian belakang.",
+"Trunkus pulmonalis":"Membawa darah miskin O₂ dari bilik kanan ke paru. Satu-satunya arteri, bersama cabangnya, yang berisi darah miskin O₂ setelah lahir.",
+"A. pulmonalis kanan / kiri":"Membawa darah miskin O₂ ke masing-masing paru untuk diisi O₂.",
+"Vena pulmonalis":"Membawa darah kaya O₂ dari paru ke atrium kiri. Biasanya empat buah.",
+"V. kava superior / inferior":"Superior: darah dari kepala, leher, lengan, dada. Inferior: darah dari perut, panggul, tungkai. Keduanya masuk atrium kanan.",
+"V. jugularis interna / eksterna":"Interna: darah dari otak dan wajah dalam; tempat menilai JVP. Eksterna: darah dari kulit kepala dan wajah luar.",
+"V. brakiosefalika":"Gabungan v. jugularis interna dan v. subclavia. Kanan dan kiri menyatu menjadi v. cava superior.",
+"V. azigos":"Mengalirkan darah dinding dada dan perut belakang ke v. cava superior. Jalur pintas bila v. cava inferior tersumbat.",
+"Trunkus seliakus":"Cabang aorta perut untuk organ saluran cerna atas: lambung, hati, limpa, pankreas, duodenum awal.",
+"A. mesenterika superior / inferior":"Superior: usus halus sampai dua pertiga kolon transversum. Inferior: sisa kolon sampai rektum atas.",
+"A. renalis":"Membawa sekitar 20% curah jantung ke ginjal untuk disaring. Penyempitannya dapat menyebabkan hipertensi sekunder.",
+"V. porta":"Membawa darah kaya nutrisi dari usus dan limpa ke hati untuk diolah sebelum masuk sirkulasi umum.",
+"Sisa duktus arteriosus":"Pada janin, duktus mengalirkan darah dari trunkus pulmonalis ke aorta. Setelah menutup, sisanya menjadi ligamen; tidak mengalirkan darah.",
+"A. iliaka interna":"Memperdarahi organ panggul (kandung kemih, rahim/prostat, rektum), otot bokong, dan perineum.",
+"A. glutea superior / inferior":"Memperdarahi otot-otot bokong (m. gluteus) dan sendi panggul.",
+"A. obturatoria":"Memperdarahi otot paha bagian dalam (adduktor) dan kepala tulang paha.",
+"A. pudenda interna":"Memperdarahi perineum dan alat kelamin luar.",
+"A. umbilikalis":"Pada janin membawa darah miskin O₂ ke plasenta. Setelah lahir, bagian awalnya tetap memperdarahi kandung kemih.",
+"A. brakialis profunda":"Memperdarahi otot lengan atas bagian belakang (m. triceps) dan tulang humerus.",
+"A. femoralis profunda":"Pemasok utama otot-otot paha.",
+"A. fibularis":"Memperdarahi otot tungkai bawah sisi lateral dan tulang fibula.",
+"V. sefalika / basilika":"Vena superfisial lengan yang mengalirkan darah dari tangan dan lengan. Sefalika di sisi ibu jari, basilika di sisi kelingking.",
+"V. mediana kubiti":"Penghubung v. cephalica dan v. basilica di lipat siku. Tempat paling umum untuk mengambil darah dan memasang infus.",
+"V. aksilaris":"Mengalirkan seluruh darah lengan menuju v. subclavia.",
+"V. safena magna / parva":"Vena superfisial tungkai. Magna di sisi medial (sering dipakai untuk bedah pintas koroner), parva di betis belakang. Katup yang rusak menyebabkan varises.",
+"V. femoralis / poplitea":"Vena dalam tungkai yang mengembalikan darah ke jantung, dibantu pompa otot betis. Tempat tersering trombosis vena dalam.",
+"V. iliaka komunis":"Mengalirkan darah dari tungkai dan panggul. Kanan dan kiri menyatu menjadi v. cava inferior."
+};
+(function(){
+  const ALL=[];
+  document.querySelectorAll('.m1-t.lat').forEach(t=>{
+    t.querySelectorAll('tr').forEach((r,i)=>{ if(!i) return; const c=r.children;
+      ALL.push({d:t.dataset.deck,id:c[0].textContent,in:c[0].textContent,la:c[1].textContent});});
+  });
+  const KEY='m1-flash-hafal'; let known={};
+  try{known=JSON.parse(localStorage.getItem(KEY)||'{}')}catch(e){}
+  const save=()=>{try{localStorage.setItem(KEY,JSON.stringify(known))}catch(e){}};
+  const el=id=>document.getElementById(id);
+  let list=[],i=0,flip=false;
+  const deckAll=()=>ALL.filter(c=>el('fc-deck').value==='semua'||c.d===el('fc-deck').value);
+  function build(){ const hide=el('fc-hide').checked; list=deckAll().filter(c=>!(hide&&known[c.id])); i=0; flip=false; draw(); }
+  function draw(){
+    const deck=deckAll(), k=deck.filter(c=>known[c.id]).length;
+    el('fc-prog').style.width=(deck.length?k/deck.length*100:0)+'%';
+    el('fc-stat').textContent=k+' dari '+deck.length+' istilah sudah hafal';
+    const card=el('fc-card');
+    if(!list.length){card.className='fc-card';el('fc-side').textContent='Selesai';el('fc-txt').textContent='Semua kartu di kelompok ini sudah hafal 🌸';el('fc-fn').textContent='';el('fc-hint').textContent='Reset hafalan, atau hilangkan centang untuk mengulang';el('fc-pos').textContent='0 / 0';return;}
+    const c=list[i], il=el('fc-dir').value==='il';
+    card.className='fc-card'+(flip?' back':'')+(il?' lat':' latf');
+    el('fc-side').textContent=flip?(il?'Latin':'Indonesia'):(il?'Indonesia':'Latin');
+    el('fc-txt').textContent=flip?(il?c.la:c.in):(il?c.in:c.la);
+    const latShown=(flip===il); const fnEl=el('fc-fn'); fnEl.textContent=''; if(latShown){const inf=FC_INFO[c.id]||{}; [['Definisi',inf.d],['Letak',inf.l],['Fungsi',FC_FN[c.id]]].forEach(([k,v])=>{ if(!v) return; const p=document.createElement('span'); p.className='fc-row'; const b=document.createElement('b'); b.textContent=k+': '; p.append(b,v); fnEl.append(p); });}
+    el('fc-hint').textContent=flip?'Tandai di bawah':'Ketuk kartu atau tekan Spasi untuk membalik';
+    el('fc-pos').textContent=(i+1)+' / '+list.length;
+  }
+  const next=()=>{ if(list.length){i=(i+1)%list.length;flip=false;draw();} };
+  const prev=()=>{ if(list.length){i=(i-1+list.length)%list.length;flip=false;draw();} };
+  el('fc-card').onclick=()=>{flip=!flip;draw();};
+  el('fc-next').onclick=next; el('fc-prev').onclick=prev;
+  el('fc-yes').onclick=()=>{ if(!list.length) return; known[list[i].id]=1; save();
+    if(el('fc-hide').checked){ list.splice(i,1); if(i>=list.length) i=0; flip=false; draw(); } else next(); };
+  el('fc-no').onclick=()=>{ if(!list.length) return; delete known[list[i].id]; save(); next(); };
+  el('fc-shuf').onclick=()=>{ for(let a=list.length-1;a>0;a--){const b=Math.floor(Math.random()*(a+1));[list[a],list[b]]=[list[b],list[a]];} i=0;flip=false;draw(); };
+  el('fc-reset').onclick=()=>{ known={}; save(); build(); };
+  ['fc-deck','fc-dir','fc-hide'].forEach(x=>el(x).onchange=build);
+  document.addEventListener('keydown',e=>{
+    if(el('v-minggu1').hidden||/INPUT|SELECT|TEXTAREA|BUTTON/.test(e.target.tagName)&&e.key===' ') return;
+    if(e.key===' '){e.preventDefault();flip=!flip;draw();}
+    else if(e.key==='ArrowRight') next(); else if(e.key==='ArrowLeft') prev();
+  });
+  build();
+document.querySelectorAll('.m1 img').forEach(im=>im.addEventListener('click',()=>{const d=document.createElement('div');d.className='m1-zoom';const c=im.cloneNode();c.removeAttribute('loading');d.append(c);d.onclick=()=>d.remove();document.body.append(d);}));
+})();
 
 /* ---------- countdown ---------- */
 const TARGET = new Date("2026-09-13T10:15:00+08:00").getTime();
